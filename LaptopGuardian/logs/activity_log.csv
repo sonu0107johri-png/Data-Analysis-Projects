@@ -1,0 +1,199 @@
+process_name,window_title,activity_type,activity_context,started_at,ended_at,duration_seconds
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:23:23.721385,2026-08-17T17:23:25.723048,2
+explorer.exe,,file_management,,2026-08-17T17:23:25.723048,2026-08-17T17:23:28.728443,3
+steamwebhelper.exe,Launching...,general_activity,Launching...,2026-08-17T17:23:28.728443,2026-08-17T17:23:30.732692,2
+explorer.exe,,file_management,,2026-08-17T17:23:30.732692,2026-08-17T17:23:31.752695,1
+chrome.exe,Google Chrome,web_browsing,Google Chrome,2026-08-17T17:23:31.752695,2026-08-17T17:23:35.784657,4
+chrome.exe,Career Center | TOPS Technologies - Google Chrome,web_browsing,Career Center | TOPS Technologies - Google Chrome,2026-08-17T17:23:35.784657,2026-08-17T17:23:39.828601,4
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:23:39.828601,2026-08-17T17:23:58.875095,19
+mysql.exe,MySQL 8.0 Command Line Client,general_activity,MySQL 8.0 Command Line Client,2026-08-17T17:23:58.875095,2026-08-17T17:24:03.889489,5
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:24:03.889489,2026-08-17T17:24:09.900162,6
+chrome.exe,Career Center | TOPS Technologies - Google Chrome,web_browsing,Career Center | TOPS Technologies - Google Chrome,2026-08-17T17:24:09.900162,2026-08-17T17:24:11.920684,2
+TransportFever2.exe,Transport Fever 2,general_activity,Transport Fever 2,2026-08-17T17:24:11.920684,2026-08-17T17:24:27.116445,15.2
+explorer.exe,,file_management,,2026-08-17T17:24:27.116445,2026-08-17T17:24:32.139450,5
+chrome.exe,Career Center | TOPS Technologies - Google Chrome,web_browsing,Career Center | TOPS Technologies - Google Chrome,2026-08-17T17:24:32.139450,2026-08-17T17:24:34.200194,2.1
+explorer.exe,,file_management,,2026-08-17T17:24:34.200194,2026-08-17T17:24:35.270556,1.1
+mysql.exe,MySQL 8.0 Command Line Client,general_activity,MySQL 8.0 Command Line Client,2026-08-17T17:24:35.270556,2026-08-17T17:24:39.319975,4
+explorer.exe,,file_management,,2026-08-17T17:24:39.319975,2026-08-17T17:24:41.364078,2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:24:41.364078,2026-08-17T17:24:45.881235,4.5
+explorer.exe,,file_management,,2026-08-17T17:24:45.881235,2026-08-17T17:24:50.033061,4.2
+citra-qt.exe,Citra 608383e,gaming,Citra 608383e,2026-08-17T17:24:50.033061,2026-08-17T17:24:54.066254,4
+explorer.exe,,file_management,,2026-08-17T17:24:54.066254,2026-08-17T17:25:01.197593,7.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:25:01.197593,2026-08-17T17:25:08.468492,7.3
+explorer.exe,logs,file_management,logs,2026-08-17T17:25:08.468492,2026-08-17T17:25:09.509751,1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:25:09.509751,2026-08-17T17:25:11.686780,2.2
+explorer.exe,,file_management,,2026-08-17T17:25:11.686780,2026-08-17T17:25:12.965483,1.3
+explorer.exe,File Explorer,file_management,File Explorer,2026-08-17T17:25:12.965483,2026-08-17T17:25:18.265432,5.3
+explorer.exe,New Volume (E:),file_management,New Volume (E:),2026-08-17T17:25:18.265432,2026-08-17T17:25:25.448449,7.2
+TransportFever2.exe,Transport Fever 2,general_activity,Transport Fever 2,2026-08-17T17:25:25.448449,2026-08-17T17:26:01.825540,36.4
+explorer.exe,Course,file_management,Course,2026-08-17T17:26:01.825540,2026-08-17T17:26:05.847421,4
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:26:05.847421,2026-08-17T17:26:08.852538,3
+blender.exe,(Unsaved) - Blender 4.2.3 LTS,general_activity,(Unsaved) - Blender 4.2.3 LTS,2026-08-17T17:26:08.852538,2026-08-17T17:26:09.857257,1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:26:09.857257,2026-08-17T17:26:12.894722,3
+Photoshop.exe,Adobe Photoshop 2025,general_activity,Adobe Photoshop 2025,2026-08-17T17:26:12.894722,2026-08-17T17:26:15.909599,3
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:26:15.909599,2026-08-17T17:26:16.917162,1
+explorer.exe,Course,file_management,Course,2026-08-17T17:26:16.917162,2026-08-17T17:26:18.924565,2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:26:18.924565,2026-08-17T17:26:19.928362,1
+citra-qt.exe,Citra 608383e,gaming,Citra 608383e,2026-08-17T17:26:19.928362,2026-08-17T17:26:20.932505,1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:26:20.932505,2026-08-17T17:26:24.939080,4
+explorer.exe,,file_management,,2026-08-17T17:26:24.939080,2026-08-17T17:26:27.948410,3
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:26:27.948410,2026-08-17T17:26:43.983490,16
+explorer.exe,,file_management,,2026-08-17T17:26:43.983490,2026-08-17T17:26:44.991297,1
+powershell.exe,Administrator: Windows PowerShell (x86),terminal_activity,Administrator: Windows PowerShell (x86),2026-08-17T17:26:44.991297,2026-08-17T17:26:47.997866,3
+explorer.exe,,file_management,,2026-08-17T17:26:47.997866,2026-08-17T17:26:55.010933,7
+PAD.Console.Host.exe,Power Automate,general_activity,Power Automate,2026-08-17T17:26:55.010933,2026-08-17T17:26:59.029193,4
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:26:59.029193,2026-08-17T17:27:03.040537,4
+PAD.Console.Host.exe,Power Automate,general_activity,Power Automate,2026-08-17T17:27:03.040537,2026-08-17T17:27:05.050146,2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:27:05.050146,2026-08-17T17:27:07.055807,2
+explorer.exe,,file_management,,2026-08-17T17:27:07.055807,2026-08-17T17:27:11.094184,4
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:27:11.094184,2026-08-17T17:27:18.110860,7
+studio64.exe,StockCommandArena – MainActivity.kt [StockCommandArena.app.main],general_activity,StockCommandArena – MainActivity.kt [StockCommandArena.app.main],2026-08-17T17:27:18.110860,2026-08-17T17:27:22.488849,4.4
+studio64.exe,Confirm Exit,general_activity,Confirm Exit,2026-08-17T17:27:22.488849,2026-08-17T17:27:24.579696,2.1
+studio64.exe,StockCommandArena – MainActivity.kt [StockCommandArena.app.main],general_activity,StockCommandArena – MainActivity.kt [StockCommandArena.app.main],2026-08-17T17:27:24.579696,2026-08-17T17:27:30.649091,6.1
+explorer.exe,,file_management,,2026-08-17T17:27:30.649091,2026-08-17T17:27:37.670496,7
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:27:37.670496,2026-08-17T17:27:40.684627,3
+studio64.exe,StockCommandArena – MainActivity.kt [StockCommandArena.app.main],general_activity,StockCommandArena – MainActivity.kt [StockCommandArena.app.main],2026-08-17T17:27:40.684627,2026-08-17T17:27:44.706167,4
+studio64.exe,Confirm Exit,general_activity,Confirm Exit,2026-08-17T17:27:44.706167,2026-08-17T17:27:45.719971,1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-08-17T17:27:45.719971,2026-08-17T17:27:51.734527,6
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-09-05T22:29:35.112547,2026-09-05T22:30:03.158428,28.0
+explorer.exe,,file_management,,2026-09-05T22:30:03.158428,2026-09-05T22:30:12.186696,9.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-09-05T22:30:12.186696,2026-09-05T22:30:21.327026,9.1
+explorer.exe,File Explorer,file_management,File Explorer,2026-09-05T22:30:21.327026,2026-09-05T22:30:26.432678,5.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,observer.py - LaptopGuardian - Visual Studio Code [Administrator],2026-09-05T22:30:26.432678,2026-09-05T22:31:17.561385,51.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:02:58.810775,2026-09-07T09:03:04.817284,6.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:03:04.817284,2026-09-07T09:03:05.826933,1.0
+AnsysFWW.exe,,general_activity,Ansys Workbench Products,2026-09-07T09:03:05.826933,2026-09-07T09:03:06.840703,1.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:03:06.840703,2026-09-07T09:03:28.869907,22.0
+AnsysFWW.exe,,general_activity,Ansys Workbench Products,2026-09-07T09:03:28.869907,2026-09-07T09:03:31.891195,3.0
+AnsysFWW.exe,Unsaved Project - Workbench,general_activity,Ansys Workbench Products,2026-09-07T09:03:31.891195,2026-09-07T09:03:34.900462,3.0
+AnsysFWW.exe,Unsaved Project - Workbench,general_activity,Ansys Workbench Products,2026-09-07T09:03:34.900462,2026-09-07T09:03:36.914770,2.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:03:36.914770,2026-09-07T09:03:38.927306,2.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:03:38.927306,2026-09-07T09:03:46.953324,8.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:03:46.953324,2026-09-07T09:03:50.968796,4.0
+Edge.exe,,general_activity,Solid Edge,2026-09-07T09:03:50.968796,2026-09-07T09:03:58.991354,8.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:03:58.991354,2026-09-07T09:04:15.026485,16.0
+Edge.exe,Solid Edge 2026,general_activity,Solid Edge,2026-09-07T09:04:15.026485,2026-09-07T09:04:16.036134,1.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:04:16.036134,2026-09-07T09:04:22.049853,6.0
+steamwebhelper.exe,Launching...,general_activity,Steam Client WebHelper,2026-09-07T09:04:22.049853,2026-09-07T09:04:27.078375,5.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:04:27.078375,2026-09-07T09:04:32.089762,5.0
+steamwebhelper.exe,Launching...,general_activity,Steam Client WebHelper,2026-09-07T09:04:32.089762,2026-09-07T09:04:36.103046,4.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:04:36.103046,2026-09-07T09:04:38.117515,2.0
+steamwebhelper.exe,Launching...,general_activity,Steam Client WebHelper,2026-09-07T09:04:38.117515,2026-09-07T09:04:41.128073,3.0
+steamwebhelper.exe,Install,general_activity,Steam Client WebHelper,2026-09-07T09:04:41.128073,2026-09-07T09:04:47.149442,6.0
+steamwebhelper.exe,Steam,general_activity,Steam Client WebHelper,2026-09-07T09:04:47.149442,2026-09-07T09:04:48.159935,1.0
+steamwebhelper.exe,Launching...,general_activity,Steam Client WebHelper,2026-09-07T09:04:48.159935,2026-09-07T09:04:51.174172,3.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:04:51.174172,2026-09-07T09:04:59.194618,8.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:04:59.194618,2026-09-07T09:05:07.213279,8.0
+Paradox Launcher.exe,Cities: Skylines II,general_activity,Paradox Launcher,2026-09-07T09:05:07.213279,2026-09-07T09:05:09.228580,2.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:05:09.228580,2026-09-07T09:05:12.240638,3.0
+Paradox Launcher.exe,Cities: Skylines II,general_activity,Paradox Launcher,2026-09-07T09:05:12.240638,2026-09-07T09:05:23.259373,11.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:05:23.259373,2026-09-07T09:05:27.274914,4.0
+Paradox Launcher.exe,Paradox Launcher,general_activity,Paradox Launcher,2026-09-07T09:05:27.274914,2026-09-07T09:05:28.291129,1.0
+Paradox Launcher.exe,Cities: Skylines II,general_activity,Paradox Launcher,2026-09-07T09:05:28.291129,2026-09-07T09:05:38.351654,10.1
+Cities2.exe,Fatal error,general_activity,Fatal error,2026-09-07T09:05:38.351654,2026-09-07T09:05:40.394327,2.0
+Paradox Launcher.exe,Cities: Skylines II,general_activity,Paradox Launcher,2026-09-07T09:05:40.394327,2026-09-07T09:05:45.795980,5.4
+dwm.exe,Cities: Skylines II (Not Responding),general_activity,Microsoft® Windows® Operating System,2026-09-07T09:05:45.795980,2026-09-07T09:05:50.844765,5.0
+Cities2.exe,Cities: Skylines II,general_activity,Cities: Skylines II,2026-09-07T09:05:50.844765,2026-09-07T09:05:58.880661,8.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:05:58.880661,2026-09-07T09:06:01.895607,3.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:06:01.895607,2026-09-07T09:06:05.918304,4.0
+Cities2.exe,Cities: Skylines II,general_activity,Cities: Skylines II,2026-09-07T09:06:05.918304,2026-09-07T09:06:20.943320,15.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:06:20.943320,2026-09-07T09:06:21.959520,1.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:06:21.959520,2026-09-07T09:06:29.079721,7.1
+Cities2.exe,Cities: Skylines II,general_activity,Cities: Skylines II,2026-09-07T09:06:29.079721,2026-09-07T09:06:32.138584,3.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T09:06:32.138584,2026-09-07T09:06:38.160273,6.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T09:06:38.160273,2026-09-07T09:06:55.205014,17.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:45:37.030874,2026-09-07T15:45:41.038089,4.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:45:41.038089,2026-09-07T15:45:44.082082,3.0
+AnsysFWW.exe,,engineering,Ansys Workbench Products,2026-09-07T15:45:44.082082,2026-09-07T15:45:46.135102,2.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:45:46.135102,2026-09-07T15:46:04.208947,18.1
+SearchHost.exe,Search,general,Microsoft® Windows® Operating System,2026-09-07T15:46:04.208947,2026-09-07T15:46:08.316840,4.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:46:08.316840,2026-09-07T15:46:09.389885,1.1
+cmd.exe,Administrator: Command Prompt,terminal_activity,Microsoft® Windows® Operating System,2026-09-07T15:46:09.389885,2026-09-07T15:46:15.496910,6.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:46:15.496910,2026-09-07T15:46:22.608253,7.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:46:22.608253,2026-09-07T15:46:28.736129,6.1
+AnsysFWW.exe,,engineering,Ansys Workbench Products,2026-09-07T15:46:28.736129,2026-09-07T15:46:36.922416,8.2
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:46:36.922416,2026-09-07T15:46:39.057801,2.1
+Edge.exe,,web_browsing,Solid Edge,2026-09-07T15:46:39.057801,2026-09-07T15:46:45.174190,6.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:46:45.174190,2026-09-07T15:47:57.643037,72.5
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:50:42.460377,2026-09-07T15:50:45.468012,3.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:50:45.468012,2026-09-07T15:50:49.548170,4.1
+Edge.exe,,engineering,Solid Edge,2026-09-07T15:50:49.548170,2026-09-07T15:50:51.606538,2.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:50:51.606538,2026-09-07T15:51:17.675589,26.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:52:20.072434,2026-09-07T15:52:22.077090,2.0
+Edge.exe,Solid Edge 2026,engineering,Solid Edge,2026-09-07T15:52:22.077090,2026-09-07T15:52:24.133109,2.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:52:24.133109,2026-09-07T15:52:47.233430,23.1
+msedge.exe,New tab - Personal - Microsoft​ Edge,web_browsing,Microsoft Edge,2026-09-07T15:52:47.233430,2026-09-07T15:52:49.894205,2.7
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:52:49.894205,2026-09-07T15:53:46.105129,56.2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:54:26.468431,2026-09-07T15:54:28.474464,2.0
+msedge.exe,New tab - Personal - Microsoft​ Edge,web_browsing,Microsoft Edge,2026-09-07T15:54:28.474464,2026-09-07T15:54:30.535653,2.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:54:30.535653,2026-09-07T15:54:33.585738,3.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:54:33.585738,2026-09-07T15:54:54.707231,21.1
+blender.exe,(Unsaved) - Blender 4.2.3 LTS,creative_design,Blender,2026-09-07T15:54:54.707231,2026-09-07T15:54:56.753210,2.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:54:56.753210,2026-09-07T15:55:49.872754,53.1
+blender.exe,(Unsaved) - Blender 4.2.3 LTS,creative_design,Blender,2026-09-07T15:55:49.872754,2026-09-07T15:55:50.914671,1.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:55:50.914671,2026-09-07T15:55:53.986867,3.1
+chrome.exe,localhost - Google Chrome,web_browsing,Google Chrome,2026-09-07T15:55:53.986867,2026-09-07T15:55:55.046352,1.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:55:55.046352,2026-09-07T15:55:56.087570,1.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:55:56.087570,2026-09-07T15:56:06.173939,10.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:56:06.173939,2026-09-07T15:56:12.229645,6.1
+steamwebhelper.exe,Steam,web_browsing,Steam Client WebHelper,2026-09-07T15:56:12.229645,2026-09-07T15:56:24.318334,12.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:56:24.318334,2026-09-07T15:56:30.362758,6.0
+steamwebhelper.exe,Steam,web_browsing,Steam Client WebHelper,2026-09-07T15:56:30.362758,2026-09-07T15:56:33.441331,3.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:56:33.441331,2026-09-07T15:56:35.473534,2.0
+steamwebhelper.exe,Launching...,web_browsing,Steam Client WebHelper,2026-09-07T15:56:35.473534,2026-09-07T15:56:36.532719,1.1
+steamwebhelper.exe,Steam,web_browsing,Steam Client WebHelper,2026-09-07T15:56:36.532719,2026-09-07T15:56:47.580063,11.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:56:47.580063,2026-09-07T15:56:49.612626,2.0
+explorer.exe,File Explorer,file_management,Microsoft® Windows® Operating System,2026-09-07T15:56:49.612626,2026-09-07T15:56:55.677549,6.1
+explorer.exe,This PC,file_management,Microsoft® Windows® Operating System,2026-09-07T15:56:55.677549,2026-09-07T15:56:59.738737,4.1
+steamwebhelper.exe,Steam,web_browsing,Steam Client WebHelper,2026-09-07T15:56:59.738737,2026-09-07T15:57:10.897617,11.2
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:57:10.897617,2026-09-07T15:57:13.931112,3.0
+steamwebhelper.exe,Launching...,web_browsing,Steam Client WebHelper,2026-09-07T15:57:13.931112,2026-09-07T15:57:15.022402,1.1
+steamwebhelper.exe,Install,web_browsing,Steam Client WebHelper,2026-09-07T15:57:15.022402,2026-09-07T15:57:20.058909,5.0
+steamwebhelper.exe,Steam,web_browsing,Steam Client WebHelper,2026-09-07T15:57:20.058909,2026-09-07T15:57:24.091233,4.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:57:24.091233,2026-09-07T15:57:30.125216,6.0
+steamwebhelper.exe,Launching...,web_browsing,Steam Client WebHelper,2026-09-07T15:57:30.125216,2026-09-07T15:57:32.179972,2.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:57:32.179972,2026-09-07T15:57:44.228270,12.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:57:44.228270,2026-09-07T15:57:47.328826,3.1
+Paradox Launcher.exe,Cities: Skylines II,general,Paradox Launcher,2026-09-07T15:57:47.328826,2026-09-07T15:57:59.417751,12.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:57:59.417751,2026-09-07T15:58:25.683989,26.3
+Cities2.exe,Cities: Skylines II,general,Cities: Skylines II,2026-09-07T15:58:25.683989,2026-09-07T15:58:26.731391,1.0
+dwm.exe,Cities: Skylines II (Not Responding),general,Microsoft® Windows® Operating System,2026-09-07T15:58:26.731391,2026-09-07T15:58:28.782830,2.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:58:28.782830,2026-09-07T15:58:30.943587,2.2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:58:30.943587,2026-09-07T15:58:36.412352,5.5
+dwm.exe,Cities: Skylines II (Not Responding),general,Microsoft® Windows® Operating System,2026-09-07T15:58:36.412352,2026-09-07T15:58:48.497162,12.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T15:58:48.497162,2026-09-07T15:58:51.553049,3.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T15:58:51.553049,2026-09-07T15:59:07.654610,16.1
+Cities2.exe,Cities: Skylines II,general,Cities: Skylines II,2026-09-07T15:59:07.654610,2026-09-07T16:00:29.991704,82.3
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:00:29.991704,2026-09-07T16:00:35.078397,5.1
+explorer.exe,This PC,file_management,Microsoft® Windows® Operating System,2026-09-07T16:00:35.078397,2026-09-07T16:00:36.407793,1.3
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:00:36.407793,2026-09-07T16:00:38.633301,2.2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:00:38.633301,2026-09-07T16:00:55.767280,17.1
+ApplicationFrameHost.exe,Feedback Hub,general,Microsoft® Windows® Operating System,2026-09-07T16:00:55.767280,2026-09-07T16:00:57.938067,2.2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:00:57.938067,2026-09-07T16:01:14.139619,16.2
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:06:44.132950,2026-09-07T16:06:46.139120,2.0
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:06:46.139120,2026-09-07T16:06:51.224008,5.1
+steamwebhelper.exe,Launching...,web_browsing,Steam Client WebHelper,2026-09-07T16:06:51.224008,2026-09-07T16:06:53.295173,2.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:06:53.295173,2026-09-07T16:06:56.334522,3.0
+Cities2.exe,Cities: Skylines II,gaming,Cities: Skylines II,2026-09-07T16:06:56.334522,2026-09-07T16:06:59.395919,3.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:06:59.395919,2026-09-07T16:07:02.436399,3.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:07:02.436399,2026-09-07T16:07:26.646159,24.2
+TransportFever2.exe,Transport Fever 2,general,Transport Fever 2,2026-09-07T16:07:26.646159,2026-09-07T16:07:28.908376,2.3
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:07:28.908376,2026-09-07T16:07:30.999578,2.1
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:07:30.999578,2026-09-07T16:07:55.371841,24.4
+TransportFever2.exe,Transport Fever 2,general,Transport Fever 2,2026-09-07T16:07:55.371841,2026-09-07T16:07:57.423684,2.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:07:57.423684,2026-09-07T16:07:59.461498,2.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:07:59.461498,2026-09-07T16:08:20.590986,21.1
+TransportFever2.exe,Transport Fever 2,general,Transport Fever 2,2026-09-07T16:08:20.590986,2026-09-07T16:08:23.643400,3.1
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:08:23.643400,2026-09-07T16:08:28.670303,5.0
+steamwebhelper.exe,Launching...,web_browsing,Steam Client WebHelper,2026-09-07T16:08:28.670303,2026-09-07T16:08:30.738967,2.1
+TransportFever2.exe,Transport Fever 2,general,Transport Fever 2,2026-09-07T16:08:30.738967,2026-09-07T16:08:33.781510,3.0
+iw4sp.exe,Modern Warfare 2,general,Modern Warfare 2,2026-09-07T16:08:33.781510,2026-09-07T16:08:35.908076,2.1
+dwm.exe,Modern Warfare 2 (Not Responding),general,Microsoft® Windows® Operating System,2026-09-07T16:08:35.908076,2026-09-07T16:08:36.949932,1.0
+iw4sp.exe,Recommended Settings Updated,general,Recommended Settings Updated,2026-09-07T16:08:36.949932,2026-09-07T16:08:46.067889,9.1
+iw4sp.exe,Modern Warfare 2,general,Modern Warfare 2,2026-09-07T16:08:46.067889,2026-09-07T16:08:49.094121,3.0
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:08:49.094121,2026-09-07T16:08:50.192391,1.1
+iw4sp.exe,Modern Warfare 2,general,Modern Warfare 2,2026-09-07T16:08:50.192391,2026-09-07T16:08:58.383427,8.2
+explorer.exe,,file_management,Microsoft® Windows® Operating System,2026-09-07T16:08:58.383427,2026-09-07T16:09:03.720046,5.3
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:09:03.720046,2026-09-07T16:10:19.160121,75.4
+ApplicationFrameHost.exe,Feedback Hub,general,Microsoft® Windows® Operating System,2026-09-07T16:10:19.160121,2026-09-07T16:10:21.413833,2.3
+Code.exe,observer.py - LaptopGuardian - Visual Studio Code [Administrator],programming,Visual Studio Code,2026-09-07T16:10:21.413833,2026-09-07T16:10:23.572278,2.2
