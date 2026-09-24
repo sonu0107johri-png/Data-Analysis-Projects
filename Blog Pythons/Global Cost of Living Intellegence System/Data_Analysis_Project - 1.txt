@@ -1,0 +1,46 @@
+Data Analysis -> Project - 1 => Global Cost of Living Intelligence System
+
+Project Statement -> Build an automated global intelligence system that continuously collects, stores, validates,  analyses, compares, explains, and visualizes the real cost of living and purchasing power across cities and countries, allowing a user to understand not merely "which place is expensive," but why, for whom, by how much, how it is changing, and whether living there is financially sustainable.
+
+Key Questions to Answer:
+A - Whether a city or a country is expensive or cheap than others? Gather the table/data for :
+	1. Country-Wise Cost-of-Living
+	2. Top 100 Cities and their City-wise cost of living - 100 is like the first set of the information that can be upgraded in bonus project.
+	3. Per capita salaries earned in these top 100 cities 
+	4. National per capita income
+	5. Know how the Cost-of-living calculated and what it signifies.
+	6. Where the folks in these targeted cities spend the most? - Give complete spending behavour of the citizens and tourists alike.
+	7. Where the folks in all countries spend the most? - Give complete spending behavour of the citizens and tourists alike. 
+B - Why is the city or a country is expensive or cheap than others?
+	1. Is it because of Government Policies - National, Regional (some have State govt. or regional Senate etc.) or local bodies?
+	2. Is it is industry-specific? If so, which industries prevail in the region? Consider sports, tourism, education, religion, and other miscellaneous industries like orange industry, call-center, and red zones as industries as well.
+	3. Is it some sort of culture, tradition, or ritual that is making the city or the country expensive or cheap with respect to others?
+	4. When is the city or country expensive than the rest of the year - is it like a season, or some special festive days? 
+C - From whom that particular country or city is expensive or cheap for?
+D - By how much that particular country or city is expensive or cheap than others?
+E - Is the city or country changing in any way:
+	1. Culturally
+	2. Environmentally
+	3. Industrially
+	4. Geo-politically
+F - Ultimately, the answer should be whether the city or the country is financially feasible to live?
+	1. We will compare the expanses with the salary from the cost of living
+
+So, the Project will not answer -> Mumbai is cheaper than London => It will give -> London has a substantially higher nominal cost of living than Mumbai, but average earnings are also higher. Housing consumes a larger/smaller proportion of disposable income for a particular household profiles, while transport, groceries, utilities, and taxation contribute differently. Over the last five years, affordability has improved/deteriorated by X%, with housing and food being the major drivers. 
+
+In the Excel sheet, cost means the average cost of the product per quantity. The frequency is the no. of days a person use that facility on an average in a particular entity in a country.
+
+Tasks to do next:
+1. Write the cost of all food ingredients in the day-to-day sheet - It will have three columns each - price of the food ingredient, quantity of the food ingredient it is priced at and the amount on the average the citizens of the country purchase - the fourth column will multiply the first and the third column.
+2. Follow that up with food delivery prices and petrol, diesel, ev, and other fuel prices - all these will be average.
+3. Then move to the housing department where the main is rent, house price, electricity bill, water bill, check other legal and other related documentation for the housing in different countries - three sets of columns will be there - residential, commercial, and industrial - Merge the Utility sheet with this one.
+4. Also create two more sheet - Leisure expense and Urban Building Structure of the country - road length, residential buildings and their distribution, commercial buildings and their distribution, industrial buildings and their distribution, key landmarks, emergency buildings, schools and colleges/universities, hospitals and clinics, power generation spot, power generation source, power generating capacity, water capacity, parks and stadiums, metro/subway present or not, metro/subway length, public transport other than road, trams, and metro, sewage facility. and many more.
+5. After the above four, start filling these sheets except the grocery one because that will be the next stage as that is not the key as of now. Start with filling the population and area in the first sheet and then move further to the other sheets.  
+6. Complete the Nation's data in the Master Result - Index. Then proceed forward -> This is the first priority.
+
+Sources
+A. https://www.numbeo.com/cost-of-living/rankings_by_country.jsp -> Mid 2026
+B. https://wise.com/in/cost-of-living/ -> Live data
+C. https://wise.com/in/cost-of-living/india -> In depth cost details for every country (Just replace india with country name) - Around 150 more websites like this - hence only take this and consider other 149 as the same part of this website.
+D. 
+ 

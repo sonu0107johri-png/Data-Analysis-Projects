@@ -1,0 +1,9 @@
+KKR vs RCB Match 1 2008 - Runs Saved - RCB - Kallis - 1 - 0 - 		- KKR - Ponting - 2 - 0 -
+					   - Kumar - 1 - 0 - 		      - Saha - 1 - 1 - 
+					   - White - 1 - 0 -		      - Karthik - 2 - 0 -
+
+alter table toss_impact_on_ipl
+    -> add constraint unique_match
+    -> unique (year, season, match_no);
+ERROR 1062 (23000): Duplicate entry '2008-1-1' for key 'toss_impact_on_ipl.unique_match'
+mysql>

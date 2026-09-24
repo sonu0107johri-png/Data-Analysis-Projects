@@ -1,0 +1,10 @@
+Key questions to ask during the topic analysis to Google.
+1. The total land area of entire Indore (Change the name of the city) is
+2. Please can you give the data for the breakdown of the total number of buildings in Indore (Change the name of the city) on the basis of residential, mixed, commercial, industrial, and empty / institutional.
+3. Agricultural or forest or open land in the entire Mumbai (Change the name of the city).
+4. What is the area of the Vacant land of entire Kanpur (Change the name of the city) region that includes every part of Kanpur (Change the name of the city) from district to city to other parts that constitute the city.
+
+Next Tasks
+1. Before starting the task, understand what is the meaning and extend of cities mentioned in the list. 
+2. After understanding what the city is meant in the broader context, then proceed accordingly. meaning divide the city into two level - urban and rural as first layer while combined as a whole.
+3. Also change the table in nation_wise_cost_of_living_db and add and remove columsn based on the respective excels

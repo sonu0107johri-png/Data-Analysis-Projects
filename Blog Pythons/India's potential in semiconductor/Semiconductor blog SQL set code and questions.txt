@@ -1,0 +1,1 @@
+select nation_id, nation, semiconductor_prod_2025, semiconductor_prod_2024, est_semiconductor_prod_2026, semiconductor_import, major_importing_nation, money_spent, semiconductor_export, major_exporting_nation, money_recieved from nation_wise_semicondutor_prod;

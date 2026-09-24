@@ -1,0 +1,436 @@
+mysql> select sr_no, pokemon, type from pokemon_stats where type = 'Water';
++-------+------------+-------+
+| sr_no | pokemon    | type  |
++-------+------------+-------+
+|     9 | Blastoise  | Water |
+|   160 | Croconaw   | Water |
+|   161 | Feraligatr | Water |
+|   119 | Goldeen    | Water |
+|    56 | Golduck    | Water |
+|   117 | Horsea     | Water |
+|   100 | Kingler    | Water |
+|    99 | Krabby     | Water |
+|   130 | Magikarp   | Water |
+|   139 | Omanyte    | Water |
+|    61 | Poliwag    | Water |
+|    62 | Poliwhirl  | Water |
+|    55 | Psyduck    | Water |
+|   118 | Seadra     | Water |
+|   120 | Seaking    | Water |
+|    87 | Seel       | Water |
+|    91 | Shellder   | Water |
+|     7 | Squirtle   | Water |
+|   121 | Staryu     | Water |
+|   159 | Totodile   | Water |
+|   135 | Vaporeon   | Water |
+|     8 | Wartortle  | Water |
++-------+------------+-------+
+22 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type = 'Water / %';
+Empty set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Water%';
++-------+------------+------------------+
+| sr_no | pokemon    | type             |
++-------+------------+------------------+
+|     9 | Blastoise  | Water            |
+|   171 | Chinchou   | Water / Electric |
+|    92 | Cloyster   | Water / Ice      |
+|   160 | Croconaw   | Water            |
+|    88 | Dewgong    | Water / Ice      |
+|   161 | Feraligatr | Water            |
+|   119 | Goldeen    | Water            |
+|    56 | Golduck    | Water            |
+|   131 | Gyarados   | Water / Flying   |
+|   117 | Horsea     | Water            |
+|   141 | Kabuto     | Rock / Water     |
+|   142 | Kabutops   | Rock / Water     |
+|   100 | Kingler    | Water            |
+|    99 | Krabby     | Water            |
+|   172 | Lanturn    | Water / Electric |
+|   132 | Lapras     | Water / Ice      |
+|   130 | Magikarp   | Water            |
+|   139 | Omanyte    | Water            |
+|   140 | Omastar    | Rock / Water     |
+|    61 | Poliwag    | Water            |
+|    62 | Poliwhirl  | Water            |
+|    63 | Poliwrath  | Water / Fighting |
+|    55 | Psyduck    | Water            |
+|   118 | Seadra     | Water            |
+|   120 | Seaking    | Water            |
+|    87 | Seel       | Water            |
+|    91 | Shellder   | Water            |
+|    81 | Slowbro    | Water / Psychic  |
+|    80 | Slowpoke   | Water / Psychic  |
+|     7 | Squirtle   | Water            |
+|   122 | Starmie    | Water / Psychic  |
+|   121 | Staryu     | Water            |
+|    73 | Tentacool  | Water / Poison   |
+|    74 | Tentacruel | Water / Poison   |
+|   159 | Totodile   | Water            |
+|   135 | Vaporeon   | Water            |
+|     8 | Wartortle  | Water            |
++-------+------------+------------------+
+37 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Water%' order by sr_no asc;
++-------+------------+------------------+
+| sr_no | pokemon    | type             |
++-------+------------+------------------+
+|     7 | Squirtle   | Water            |
+|     8 | Wartortle  | Water            |
+|     9 | Blastoise  | Water            |
+|    55 | Psyduck    | Water            |
+|    56 | Golduck    | Water            |
+|    61 | Poliwag    | Water            |
+|    62 | Poliwhirl  | Water            |
+|    63 | Poliwrath  | Water / Fighting |
+|    73 | Tentacool  | Water / Poison   |
+|    74 | Tentacruel | Water / Poison   |
+|    80 | Slowpoke   | Water / Psychic  |
+|    81 | Slowbro    | Water / Psychic  |
+|    87 | Seel       | Water            |
+|    88 | Dewgong    | Water / Ice      |
+|    91 | Shellder   | Water            |
+|    92 | Cloyster   | Water / Ice      |
+|    99 | Krabby     | Water            |
+|   100 | Kingler    | Water            |
+|   117 | Horsea     | Water            |
+|   118 | Seadra     | Water            |
+|   119 | Goldeen    | Water            |
+|   120 | Seaking    | Water            |
+|   121 | Staryu     | Water            |
+|   122 | Starmie    | Water / Psychic  |
+|   130 | Magikarp   | Water            |
+|   131 | Gyarados   | Water / Flying   |
+|   132 | Lapras     | Water / Ice      |
+|   135 | Vaporeon   | Water            |
+|   139 | Omanyte    | Water            |
+|   140 | Omastar    | Rock / Water     |
+|   141 | Kabuto     | Rock / Water     |
+|   142 | Kabutops   | Rock / Water     |
+|   159 | Totodile   | Water            |
+|   160 | Croconaw   | Water            |
+|   161 | Feraligatr | Water            |
+|   171 | Chinchou   | Water / Electric |
+|   172 | Lanturn    | Water / Electric |
++-------+------------+------------------+
+37 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Dark%' order by sr_no asc;
+Empty set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Dragon%' order by sr_no asc;
++-------+-----------+-----------------+
+| sr_no | pokemon   | type            |
++-------+-----------+-----------------+
+|   148 | Dratini   | Dragon          |
+|   149 | Dragonair | Dragon          |
+|   150 | Dragonite | Dragon / Flying |
++-------+-----------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Electric%' order by sr_no asc;
++-------+------------+-------------------+
+| sr_no | pokemon    | type              |
++-------+------------+-------------------+
+|    25 | Pikachu    | Electric          |
+|    26 | Raichu     | Electric          |
+|    82 | Magnemite  | Electric / Steel  |
+|    83 | Magneton   | Electric / Steel  |
+|   101 | Voltorb    | Electric          |
+|   102 | Electrode  | Electric          |
+|   126 | Electabuzz | Electric          |
+|   136 | Jolteon    | Electric          |
+|   146 | Zapdos     | Electric / Flying |
+|   171 | Chinchou   | Water / Electric  |
+|   172 | Lanturn    | Water / Electric  |
+|   173 | Pichu      | Electric          |
+|   180 | Mareep     | Electric          |
+|   181 | Flaaffy    | Electric          |
+|   182 | Ampharos   | Electric          |
++-------+------------+-------------------+
+15 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Fairy%' order by sr_no asc;
++-------+--------------+-----------------+
+| sr_no | pokemon      | type            |
++-------+--------------+-----------------+
+|    35 | Clefairy     | Fairy           |
+|    36 | Clefable     | Fairy           |
+|    39 |   Jigglypuff | Normal / Fairy  |
+|    40 | Wigglytuff   | Normal / Fairy  |
+|   123 | Mr. Mime     | Psychic / Fairy |
+|   174 | Cleffa       | Fairy           |
+|   175 | Igglybuff    | Normal / Fairy  |
+|   176 | Togepi       | Fairy           |
+|   177 | Togetic      | Fairy / Flying  |
++-------+--------------+-----------------+
+9 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Fighting%' order by sr_no asc;
++-------+------------+------------------+
+| sr_no | pokemon    | type             |
++-------+------------+------------------+
+|    57 | Mankey     | Fighting         |
+|    58 | Primeape   | Fighting         |
+|    63 | Poliwrath  | Water / Fighting |
+|    67 | Machop     | Fighting         |
+|    68 | Machoke    | Fighting         |
+|    69 | Machamp    | Fighting         |
+|   107 | Hitmonlee  | Fighting         |
+|   108 | Hitmonchan | Fighting         |
++-------+------------+------------------+
+8 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Fire%' order by sr_no asc;
++-------+------------+---------------+
+| sr_no | pokemon    | type          |
++-------+------------+---------------+
+|     4 | Charmander | Fire          |
+|     5 | Charmeleon | Fire          |
+|     6 | Charizard  | Fire / Flying |
+|    37 | Vulpix     | Fire          |
+|    38 | Ninetales  | Fire          |
+|    59 | Growlithe  | Fire          |
+|    60 | Arcanine   | Fire          |
+|    78 | Ponyta     | Fire          |
+|    79 | Rapidash   | Fire          |
+|   127 | Magmar     | Fire          |
+|   137 | Flareon    | Fire          |
+|   147 | Moltres    | Fire / Flying |
+|   156 | Cyndaquil  | Fire          |
+|   157 | Quilava    | Fire          |
+|   158 | Typhlosion | Fire          |
++-------+------------+---------------+
+15 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Flying%' order by sr_no asc;
++-------+------------+-------------------+
+| sr_no | pokemon    | type              |
++-------+------------+-------------------+
+|     6 | Charizard  | Fire / Flying     |
+|    12 | Butterfree | Bug / Flying      |
+|    16 | Pidgey     | Normal / Flying   |
+|    17 | Pidgeotto  | Normal / Flying   |
+|    18 | Pidgeot    | Normal / Flying   |
+|    21 | Spearow    | Normal / Flying   |
+|    22 | Fearow     | Normal / Flying   |
+|    41 | Zubat      | Poison / Flying   |
+|    42 | Golbat     | Poison / Flying   |
+|    84 | Farfetch'd | Normal / Flying   |
+|    85 | Doduo      | Normal / Flying   |
+|    86 | Dodrio     | Normal / Flying   |
+|   124 | Scyther    | Bug / Flying      |
+|   131 | Gyarados   | Water / Flying    |
+|   143 | Aerodactyl | Rock / Flying     |
+|   145 | Articuno   | Ice / Flying      |
+|   146 | Zapdos     | Electric / Flying |
+|   147 | Moltres    | Fire / Flying     |
+|   150 | Dragonite  | Dragon / Flying   |
+|   164 | Hoothoot   | Normal / Flying   |
+|   165 | Noctowl    | Normal / Flying   |
+|   166 | Ledyba     | Bug / Flying      |
+|   167 | Ledian     | Bug / Flying      |
+|   170 | Crobat     | Poison / Flying   |
+|   177 | Togetic    | Fairy / Flying    |
+|   178 | Natu       | Psychic / Flying  |
+|   179 | Xatu       | Psychic / Flying  |
++-------+------------+-------------------+
+27 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Ghost%' order by sr_no asc;
++-------+---------+----------------+
+| sr_no | pokemon | type           |
++-------+---------+----------------+
+|    93 | Gastly  | Ghost / Poison |
+|    94 | Haunter | Ghost / Poison |
+|    95 | Gengar  | Ghost / Poison |
++-------+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Grass%' order by sr_no asc;
++-------+------------+-----------------+
+| sr_no | pokemon    | type            |
++-------+------------+-----------------+
+|     1 | Bulbasaur  | Grass / Poison  |
+|     2 | Ivysaur    | Grass / Poison  |
+|     3 | Venusaur   | Grass / Poison  |
+|    43 | Oddish     | Grass / Poison  |
+|    44 | Gloom      | Grass / Poison  |
+|    45 | Vileplume  | Grass / Poison  |
+|    46 | Paras      | Bug / Grass     |
+|    47 | Parasect   | Bug / Grass     |
+|    70 | Bellsprout | Grass / Poison  |
+|    71 | Weepinbell | Grass / Poison  |
+|    72 | Victreebel | Grass / Poison  |
+|   103 | Exeggcute  | Grass / Psychic |
+|   104 | Exeggutor  | Grass / Psychic |
+|   115 | Tangela    | Grass           |
+|   153 | Chikorita  | Grass           |
+|   154 | Bayleef    | Grass           |
+|   155 | Meganium   | Grass           |
++-------+------------+-----------------+
+17 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Ground%' order by sr_no asc;
++-------+-----------+-----------------+
+| sr_no | pokemon   | type            |
++-------+-----------+-----------------+
+|    27 | Sandshrew | Ground          |
+|    28 | Sandslash | Ground          |
+|    31 | Nidoqueen | Poison / Ground |
+|    34 | Nidoking  | Poison / Ground |
+|    50 | Diglett   | Ground          |
+|    51 | Dugtrio   | Ground          |
+|    75 | Geodude   | Rock / Ground   |
+|    76 | Graveler  | Rock / Ground   |
+|    77 | Golem     | Rock / Ground   |
+|    96 | Onix      | Rock / Ground   |
+|   105 | Cubone    | Ground          |
+|   106 | Marowak   | Ground          |
+|   112 | Rhyhorn   | Ground / Rock   |
+|   113 | Rhydon    | Ground / Rock   |
++-------+-----------+-----------------+
+14 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Ice%' order by sr_no asc;
++-------+----------+---------------+
+| sr_no | pokemon  | type          |
++-------+----------+---------------+
+|    88 | Dewgong  | Water / Ice   |
+|    92 | Cloyster | Water / Ice   |
+|   125 | Jynx     | Ice / Psychic |
+|   132 | Lapras   | Water / Ice   |
+|   145 | Articuno | Ice / Flying  |
++-------+----------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Normal%' order by sr_no asc;
++-------+--------------+-----------------+
+| sr_no | pokemon      | type            |
++-------+--------------+-----------------+
+|    16 | Pidgey       | Normal / Flying |
+|    17 | Pidgeotto    | Normal / Flying |
+|    18 | Pidgeot      | Normal / Flying |
+|    19 | Rattata      | Normal          |
+|    20 | Raticate     | Normal          |
+|    21 | Spearow      | Normal / Flying |
+|    22 | Fearow       | Normal / Flying |
+|    39 |   Jigglypuff | Normal / Fairy  |
+|    40 | Wigglytuff   | Normal / Fairy  |
+|    52 | Meowth       | Normal          |
+|    53 | Persian      | Normal          |
+|    84 | Farfetch'd   | Normal / Flying |
+|    85 | Doduo        | Normal / Flying |
+|    86 | Dodrio       | Normal / Flying |
+|   109 | Lickitung    | Normal          |
+|   114 | Chansey      | Normal          |
+|   116 | Kangaskhan   | Normal          |
+|   129 | Tauros       | Normal          |
+|   133 | Ditto        | Normal          |
+|   134 | Eevee        | Normal          |
+|   138 | Porygon      | Normal          |
+|   144 | Snorlax      | Normal          |
+|   162 | Sentret      | Normal          |
+|   163 | Furret       | Normal          |
+|   164 | Hoothoot     | Normal / Flying |
+|   165 | Noctowl      | Normal / Flying |
+|   175 | Igglybuff    | Normal / Fairy  |
++-------+--------------+-----------------+
+27 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Poison%' order by sr_no asc;
++-------+------------+-----------------+
+| sr_no | pokemon    | type            |
++-------+------------+-----------------+
+|     1 | Bulbasaur  | Grass / Poison  |
+|     2 | Ivysaur    | Grass / Poison  |
+|     3 | Venusaur   | Grass / Poison  |
+|    13 | Weedle     | Bug / Poison    |
+|    14 | Kakuna     | Bug / Poison    |
+|    15 | Beedrill   | Bug / Poison    |
+|    23 | Ekans      | Poison          |
+|    24 | Arbok      | Poison          |
+|    29 | Nidoran_Fe | Poison          |
+|    30 | Nidorina   | Poison          |
+|    31 | Nidoqueen  | Poison / Ground |
+|    32 | Nidoran_Ma | Poison          |
+|    33 | Nidorino   | Poison          |
+|    34 | Nidoking   | Poison / Ground |
+|    41 | Zubat      | Poison / Flying |
+|    42 | Golbat     | Poison / Flying |
+|    43 | Oddish     | Grass / Poison  |
+|    44 | Gloom      | Grass / Poison  |
+|    45 | Vileplume  | Grass / Poison  |
+|    48 | Venonat    | Bug / Poison    |
+|    49 | Venomoth   | Bug / Poison    |
+|    70 | Bellsprout | Grass / Poison  |
+|    71 | Weepinbell | Grass / Poison  |
+|    72 | Victreebel | Grass / Poison  |
+|    73 | Tentacool  | Water / Poison  |
+|    74 | Tentacruel | Water / Poison  |
+|    89 | Grimer     | Poison          |
+|    90 | Muk        | Poison          |
+|    93 | Gastly     | Ghost / Poison  |
+|    94 | Haunter    | Ghost / Poison  |
+|    95 | Gengar     | Ghost / Poison  |
+|   110 | Koffing    | Poison          |
+|   111 | Weezing    | Poison          |
+|   168 | Spinarak   | Bug / Poison    |
+|   169 | Ariados    | Bug / Poison    |
+|   170 | Crobat     | Poison / Flying |
++-------+------------+-----------------+
+36 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Psychic%' order by sr_no asc;
++-------+-----------+------------------+
+| sr_no | pokemon   | type             |
++-------+-----------+------------------+
+|    64 | Abra      | Psychic          |
+|    65 | Kadabra   | Psychic          |
+|    66 | Alakazam  | Psychic          |
+|    80 | Slowpoke  | Water / Psychic  |
+|    81 | Slowbro   | Water / Psychic  |
+|    97 | Drowzy    | Psychic          |
+|    98 | Hypno     | Psychic          |
+|   103 | Exeggcute | Grass / Psychic  |
+|   104 | Exeggutor | Grass / Psychic  |
+|   122 | Starmie   | Water / Psychic  |
+|   123 | Mr. Mime  | Psychic / Fairy  |
+|   125 | Jynx      | Ice / Psychic    |
+|   151 | Mewtwo    | Psychic          |
+|   152 | Mew       | Psychic          |
+|   178 | Natu      | Psychic / Flying |
+|   179 | Xatu      | Psychic / Flying |
++-------+-----------+------------------+
+16 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Rock%' order by sr_no asc;
++-------+------------+---------------+
+| sr_no | pokemon    | type          |
++-------+------------+---------------+
+|    75 | Geodude    | Rock / Ground |
+|    76 | Graveler   | Rock / Ground |
+|    77 | Golem      | Rock / Ground |
+|    96 | Onix       | Rock / Ground |
+|   112 | Rhyhorn    | Ground / Rock |
+|   113 | Rhydon     | Ground / Rock |
+|   140 | Omastar    | Rock / Water  |
+|   141 | Kabuto     | Rock / Water  |
+|   142 | Kabutops   | Rock / Water  |
+|   143 | Aerodactyl | Rock / Flying |
++-------+------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> select sr_no, pokemon, type from pokemon_stats where type like '%Steel%' order by sr_no asc;
++-------+-----------+------------------+
+| sr_no | pokemon   | type             |
++-------+-----------+------------------+
+|    82 | Magnemite | Electric / Steel |
+|    83 | Magneton  | Electric / Steel |
++-------+-----------+------------------+
+2 rows in set (0.00 sec)
+
+mysql>
