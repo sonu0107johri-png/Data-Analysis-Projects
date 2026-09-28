@@ -1,0 +1,138 @@
+show databases;
++--------------------------------------+
+| Database                             |
++--------------------------------------+
+| customerdb                           |
+| finance_blog_how_india_should_invest |
+| fuel_research                        |
+| geopolitics_of_india                 |
+| govt_comp                            |
+| information_schema                   |
+| ipl_analysis_db                      |
+| m1db                                 |
+| mission_life                         |
+| mydb                                 |
+| mysql                                |
+| org                                  |
+| performance_schema                   |
+| pokemon_strategy                     |
+| public_transport                     |
+| sakila                               |
+| semiconductor                        |
+| stock_analysis                       |
+| sys                                  |
+| tops_project                         |
+| triggerdb                            |
+| world                                |
++--------------------------------------+
+22 rows in set (0.07 sec)
+
+mysql> create database american_banking_complaints;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------------------------+
+| Database                             |
++--------------------------------------+
+| american_banking_complaints          |
+| customerdb                           |
+| finance_blog_how_india_should_invest |
+| fuel_research                        |
+| geopolitics_of_india                 |
+| govt_comp                            |
+| information_schema                   |
+| ipl_analysis_db                      |
+| m1db                                 |
+| mission_life                         |
+| mydb                                 |
+| mysql                                |
+| org                                  |
+| performance_schema                   |
+| pokemon_strategy                     |
+| public_transport                     |
+| sakila                               |
+| semiconductor                        |
+| stock_analysis                       |
+| sys                                  |
+| tops_project                         |
+| triggerdb                            |
+| world                                |
++--------------------------------------+
+23 rows in set (0.00 sec)
+
+mysql> use american_banking_complaints;
+Database changed
+
+mysql> select database();
++-----------------------------+
+| database()                  |
++-----------------------------+
+| american_banking_complaints |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE consumer_complaints (
+    ->     complaint_id BIGINT NOT NULL,
+    ->     date_received DATE NOT NULL,
+    ->     product VARCHAR(100),
+    ->     sub_product VARCHAR(100),
+    ->     issue VARCHAR(150),
+    ->     sub_issue VARCHAR(255),
+    ->     consumer_complaint_narrative MEDIUMTEXT,
+    ->     company_public_response VARCHAR(255),
+    ->     company VARCHAR(150),
+    ->     state VARCHAR(50),
+    ->     zip_code VARCHAR(10),
+    ->     tags VARCHAR(50),
+    ->     submitted_via VARCHAR(30),
+    ->     date_sent_to_company DATE,
+    ->     company_response_to_consumer VARCHAR(100),
+    ->     timely_response VARCHAR(10),
+    ->     PRIMARY KEY (complaint_id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> describe consumer_complaints;
++------------------------------+--------------+------+-----+---------+-------+
+| Field                        | Type         | Null | Key | Default | Extra |
++------------------------------+--------------+------+-----+---------+-------+
+| complaint_id                 | bigint       | NO   | PRI | NULL    |       |
+| date_received                | date         | NO   |     | NULL    |       |
+| product                      | varchar(100) | YES  |     | NULL    |       |
+| sub_product                  | varchar(100) | YES  |     | NULL    |       |
+| issue                        | varchar(150) | YES  |     | NULL    |       |
+| sub_issue                    | varchar(255) | YES  |     | NULL    |       |
+| consumer_complaint_narrative | mediumtext   | YES  |     | NULL    |       |
+| company_public_response      | varchar(255) | YES  |     | NULL    |       |
+| company                      | varchar(150) | YES  |     | NULL    |       |
+| state                        | varchar(50)  | YES  |     | NULL    |       |
+| zip_code                     | varchar(10)  | YES  |     | NULL    |       |
+| tags                         | varchar(50)  | YES  |     | NULL    |       |
+| submitted_via                | varchar(30)  | YES  |     | NULL    |       |
+| date_sent_to_company         | date         | YES  |     | NULL    |       |
+| company_response_to_consumer | varchar(100) | YES  |     | NULL    |       |
+| timely_response              | varchar(10)  | YES  |     | NULL    |       |
++------------------------------+--------------+------+-----+---------+-------+
+16 rows in set (0.02 sec)
+
+mysql> show variables like 'local_infile'
+    -> ;
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| local_infile  | OFF   |
++---------------+-------+
+1 row in set (0.02 sec)
+
+mysql> set global local_infile = 1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show variables like 'local_infile';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| local_infile  | ON    |
++---------------+-------+
+1 row in set (0.00 sec)
+
+mysql>
