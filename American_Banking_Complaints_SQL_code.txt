@@ -1,4 +1,23 @@
-show databases;
+In Command Prompt (Win + R), to start a new MySQL client with --local-infile:
+
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" --local-infile=1 -u root -p 
+And then enter the password of MySQL - 12345 
+
+This will keep the local_infile 
+how variables like 'local_infile'
+    -> ;
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| local_infile  | OFF   |
++---------------+-------+
+1 row in set (0.02 sec)
+
+Always ON... 
+
+SQL CODE
+
+mysql> show databases;
 +--------------------------------------+
 | Database                             |
 +--------------------------------------+
@@ -134,5 +153,159 @@ mysql> show variables like 'local_infile';
 | local_infile  | ON    |
 +---------------+-------+
 1 row in set (0.00 sec)
+
+mysql> select count(*) from consumer_complaints;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.15 sec)
+
+mysql> show variables like "local_infile";
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| local_infile  | ON    |
++---------------+-------+
+1 row in set (0.01 sec)
+
+mysql> status;
+--------------
+C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe  Ver 8.0.46 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+Connection id:          78
+Current database:       american_banking_complaints
+Current user:           root@localhost
+SSL:                    Cipher in use is TLS_AES_256_GCM_SHA384
+Using delimiter:        ;
+Server version:         8.0.46 MySQL Community Server - GPL
+Protocol version:       10
+Connection:             localhost via TCP/IP
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    cp850
+Conn.  characterset:    cp850
+TCP port:               3306
+Binary data as:         Hexadecimal
+Uptime:                 1 hour 8 min 26 sec
+
+Threads: 3  Questions: 97  Slow queries: 0  Opens: 231  Flush tables: 3  Open tables: 150  Queries per second avg: 0.023
+--------------
+
+mysql> show variables like 'secure_file_priv';
++------------------+------------------------------------------------+
+| Variable_name    | Value                                          |
++------------------+------------------------------------------------+
+| secure_file_priv | C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\ |
++------------------+------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/mysql_local_test.csv'
+    -> into table local_infile_test
+    -> fields terminated by ','
+    -> lines terminated by '\r\n'
+    -> ignore 1 lines;
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from local_infile_test;
++---------+-----------+
+| test_id | test_name |
++---------+-----------+
+|       1 |  Alpha    |
+|       2 |  Beta     |
++---------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> describe consumer_complaints;
++------------------------------+--------------+------+-----+---------+-------+
+| Field                        | Type         | Null | Key | Default | Extra |
++------------------------------+--------------+------+-----+---------+-------+
+| complaint_id                 | bigint       | NO   | PRI | NULL    |       |
+| date_received                | date         | NO   |     | NULL    |       |
+| product                      | varchar(100) | YES  |     | NULL    |       |
+| sub_product                  | varchar(100) | YES  |     | NULL    |       |
+| issue                        | varchar(150) | YES  |     | NULL    |       |
+| sub_issue                    | varchar(255) | YES  |     | NULL    |       |
+| consumer_complaint_narrative | mediumtext   | YES  |     | NULL    |       |
+| company_public_response      | varchar(255) | YES  |     | NULL    |       |
+| company                      | varchar(150) | YES  |     | NULL    |       |
+| state                        | varchar(50)  | YES  |     | NULL    |       |
+| zip_code                     | varchar(10)  | YES  |     | NULL    |       |
+| tags                         | varchar(50)  | YES  |     | NULL    |       |
+| submitted_via                | varchar(30)  | YES  |     | NULL    |       |
+| date_sent_to_company         | date         | YES  |     | NULL    |       |
+| company_response_to_consumer | varchar(100) | YES  |     | NULL    |       |
+| timely_response              | varchar(10)  | YES  |     | NULL    |       |
++------------------------------+--------------+------+-----+---------+-------+
+16 rows in set (0.02 sec)
+
+mysql> truncate table consumer_complaints;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select count(*) from consumer_complaints;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/complaints_5row_test.csv'
+    -> INTO TABLE consumer_complaints
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\r\n'
+    -> IGNORE 1 LINES
+    -> (
+    ->     @date_received,
+    ->     @product,
+    ->     @sub_product,
+    ->     @issue,
+    ->     @sub_issue,
+    ->     @consumer_complaint_narrative,
+    ->     @company_public_response,
+    ->     @company,
+    ->     @state,
+    ->     @zip_code,
+    ->     @tags,
+    ->     @submitted_via,
+    ->     @date_sent_to_company,
+    ->     @company_response_to_consumer,
+    ->     @timely_response,
+    ->     @complaint_id
+    -> )
+    -> SET
+    ->     complaint_id = @complaint_id,
+    ->     date_received = NULLIF(@date_received, ''),
+    ->     product = NULLIF(@product, ''),
+    ->     sub_product = NULLIF(@sub_product, ''),
+    ->     issue = NULLIF(@issue, ''),
+    ->     sub_issue = NULLIF(@sub_issue, ''),
+    ->     consumer_complaint_narrative = NULLIF(@consumer_complaint_narrative, ''),
+    ->     company_public_response = NULLIF(@company_public_response, ''),
+    ->     company = NULLIF(@company, ''),
+    ->     state = NULLIF(@state, ''),
+    ->     zip_code = NULLIF(@zip_code, ''),
+    ->     tags = NULLIF(@tags, ''),
+    ->     submitted_via = NULLIF(@submitted_via, ''),
+    ->     date_sent_to_company = NULLIF(@date_sent_to_company, ''),
+    ->     company_response_to_consumer = NULLIF(@company_response_to_consumer, ''),
+    ->     timely_response = NULLIF(TRIM(TRAILING '\r' FROM @timely_response), '');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from consumer_complaints limit 10;
++--------------+---------------+-----------------------------------------------------+------------------+--------------------------------------+-------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------+----------------------------------------+-------+----------+------+---------------+----------------------+---------------------------------+-----------------+
+| complaint_id | date_received | product                                             | sub_product      | issue                                | sub_issue                           | consumer_complaint_narrative | company_public_response                                                                         | company                                | state | zip_code | tags | submitted_via | date_sent_to_company | company_response_to_consumer    | timely_response |
++--------------+---------------+-----------------------------------------------------+------------------+--------------------------------------+-------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------+----------------------------------------+-------+----------+------+---------------+----------------------+---------------------------------+-----------------+
+|     11382832 | 2025-01-04    | Credit reporting or other personal consumer reports | Credit reporting | Incorrect information on your report | Information belongs to someone else | NULL                         | Company has responded to the consumer and the CFPB and chooses not to provide a public response | TRANSUNION INTERMEDIATE HOLDINGS, INC. | PR    | 949      | NULL | Web           | 2025-01-04           | Closed with non-monetary relief | Yes             |
+|     11383088 | 2025-01-04    | Credit reporting or other personal consumer reports | Credit reporting | Incorrect information on your report | Information belongs to someone else | NULL                         | NULL                                                                                            | EQUIFAX, INC.                          | PR    | 949      | NULL | Web           | 2025-01-04           | Closed with non-monetary relief | Yes             |
+|     11383417 | 2025-01-04    | Credit reporting or other personal consumer reports | Credit reporting | Incorrect information on your report | Information belongs to someone else | NULL                         | Company has responded to the consumer and the CFPB and chooses not to provide a public response | Experian Information Solutions Inc.    | PR    | 949      | NULL | Web           | 2025-01-04           | Closed with explanation         | Yes             |
+|     11725468 | 2025-01-25    | Credit reporting or other personal consumer reports | Credit reporting | Incorrect information on your report | Information belongs to someone else | NULL                         | Company has responded to the consumer and the CFPB and chooses not to provide a public response | TRANSUNION INTERMEDIATE HOLDINGS, INC. | FL    | 34744    | NULL | Web           | 2025-01-25           | Closed with non-monetary relief | Yes             |
+|     11760322 | 2025-01-25    | Credit reporting or other personal consumer reports | Credit reporting | Incorrect information on your report | Information belongs to someone else | NULL                         | Company has responded to the consumer and the CFPB and chooses not to provide a public response | Experian Information Solutions Inc.    | FL    | 34744    | NULL | Web           | 2025-01-25           | Closed with explanation         | Yes             |
++--------------+---------------+-----------------------------------------------------+------------------+--------------------------------------+-------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------+----------------------------------------+-------+----------+------+---------------+----------------------+---------------------------------+-----------------+
+5 rows in set (0.00 sec)
 
 mysql>
