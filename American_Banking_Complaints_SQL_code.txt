@@ -308,4 +308,132 @@ mysql> select * from consumer_complaints limit 10;
 +--------------+---------------+-----------------------------------------------------+------------------+--------------------------------------+-------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------+----------------------------------------+-------+----------+------+---------------+----------------------+---------------------------------+-----------------+
 5 rows in set (0.00 sec)
 
-mysql>
+mysql> show tables;
++---------------------------------------+
+| Tables_in_american_banking_complaints |
++---------------------------------------+
+| consumer_complaints                   |
+| local_infile_test                     |
++---------------------------------------+
+2 rows in set (0.61 sec)
+
+mysql> describe consumer_complaints;
++------------------------------+--------------+------+-----+---------+-------+
+| Field                        | Type         | Null | Key | Default | Extra |
++------------------------------+--------------+------+-----+---------+-------+
+| complaint_id                 | bigint       | NO   | PRI | NULL    |       |
+| date_received                | date         | NO   |     | NULL    |       |
+| product                      | varchar(100) | YES  |     | NULL    |       |
+| sub_product                  | varchar(100) | YES  |     | NULL    |       |
+| issue                        | varchar(150) | YES  |     | NULL    |       |
+| sub_issue                    | varchar(255) | YES  |     | NULL    |       |
+| consumer_complaint_narrative | mediumtext   | YES  |     | NULL    |       |
+| company_public_response      | varchar(255) | YES  |     | NULL    |       |
+| company                      | varchar(150) | YES  |     | NULL    |       |
+| state                        | varchar(50)  | YES  |     | NULL    |       |
+| zip_code                     | varchar(10)  | YES  |     | NULL    |       |
+| tags                         | varchar(50)  | YES  |     | NULL    |       |
+| submitted_via                | varchar(30)  | YES  |     | NULL    |       |
+| date_sent_to_company         | date         | YES  |     | NULL    |       |
+| company_response_to_consumer | varchar(100) | YES  |     | NULL    |       |
+| timely_response              | varchar(10)  | YES  |     | NULL    |       |
++------------------------------+--------------+------+-----+---------+-------+
+16 rows in set (0.14 sec)
+
+mysql> select count(*) from consumer_complaints;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.05 sec)
+
+mysql> show variables like 'secure_file_priv';
++------------------+------------------------------------------------+
+| Variable_name    | Value                                          |
++------------------+------------------------------------------------+
+| secure_file_priv | C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\ |
++------------------+------------------------------------------------+
+1 row in set (0.03 sec)
+
+mysql> show variables like 'max_allowed_packet';
++--------------------+----------+
+| Variable_name      | Value    |
++--------------------+----------+
+| max_allowed_packet | 67108864 |
++--------------------+----------+
+1 row in set (0.00 sec)
+
+mysql> show create table consumer_complaints;
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table               | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| consumer_complaints | CREATE TABLE `consumer_complaints` (
+  `complaint_id` bigint NOT NULL,
+  `date_received` date NOT NULL,
+  `product` varchar(100) DEFAULT NULL,
+  `sub_product` varchar(100) DEFAULT NULL,
+  `issue` varchar(150) DEFAULT NULL,
+  `sub_issue` varchar(255) DEFAULT NULL,
+  `consumer_complaint_narrative` mediumtext,
+  `company_public_response` varchar(255) DEFAULT NULL,
+  `company` varchar(150) DEFAULT NULL,
+  `state` varchar(50) DEFAULT NULL,
+  `zip_code` varchar(10) DEFAULT NULL,
+  `tags` varchar(50) DEFAULT NULL,
+  `submitted_via` varchar(30) DEFAULT NULL,
+  `date_sent_to_company` date DEFAULT NULL,
+  `company_response_to_consumer` varchar(100) DEFAULT NULL,
+  `timely_response` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`complaint_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++---------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/complaints_mysql_stress_test.csv'
+    -> INTO TABLE consumer_complaints_stress_test
+    -> CHARACTER SET utf8mb4
+    -> FIELDS TERMINATED BY ','
+    -> OPTIONALLY ENCLOSED BY '"'
+    -> ESCAPED BY '"'
+    -> LINES TERMINATED BY '\r\n'
+    -> IGNORE 1 LINES
+    -> (
+    ->     @date_received,
+    ->     @product,
+    ->     @sub_product,
+    ->     @issue,
+    ->     @sub_issue,
+    ->     @consumer_complaint_narrative,
+    ->     @company_public_response,
+    ->     @company,
+    ->     @state,
+    ->     @zip_code,
+    ->     @tags,
+    ->     @submitted_via,
+    ->     @date_sent_to_company,
+    ->     @company_response_to_consumer,
+    ->     @timely_response,
+    ->     @complaint_id
+    -> )
+    -> SET
+    ->     complaint_id = NULLIF(TRIM(TRAILING '\r' FROM @complaint_id), ''),
+    ->     date_received = NULLIF(@date_received, ''),
+    ->     product = NULLIF(@product, ''),
+    ->     sub_product = NULLIF(@sub_product, ''),
+    ->     issue = NULLIF(@issue, ''),
+    ->     sub_issue = NULLIF(@sub_issue, ''),
+    ->     consumer_complaint_narrative = NULLIF(@consumer_complaint_narrative, ''),
+    ->     company_public_response = NULLIF(@company_public_response, ''),
+    ->     company = NULLIF(@company, ''),
+    ->     state = NULLIF(@state, ''),
+    ->     zip_code = NULLIF(@zip_code, ''),
+    ->     tags = NULLIF(@tags, ''),
+    ->     submitted_via = NULLIF(@submitted_via, ''),
+    ->     date_sent_to_company = NULLIF(@date_sent_to_company, ''),
+    ->     company_response_to_consumer = NULLIF(@company_response_to_consumer, ''),
+    ->     timely_response = NULLIF(@timely_response, '');
+Query OK, 1000 rows affected (1.02 sec)
+Records: 1000  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> 
