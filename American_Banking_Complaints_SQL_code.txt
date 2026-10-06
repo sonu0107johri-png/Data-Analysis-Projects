@@ -1049,4 +1049,111 @@ mysql> select sub_issue, count(*) as total_complaints, round(count(*) * 100 / (s
 +---------------------------------------------------------------------------------------+------------------+-------------------------------+
 5 rows in set (1 min 13.22 sec)
 
+mysql> select count(*) from consumer_complaints;
++----------+
+| count(*) |
++----------+
+|  5442964 |
++----------+
+1 row in set (34.33 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where product = 'Money transfer, virtual currency, or money service' group by issue order by issue_complaint_percentage desc;
++----------------------------------------------------------+------------------+----------------------------+
+| issue                                                    | total_complaints | issue_complaint_percentage |
++----------------------------------------------------------+------------------+----------------------------+
+| Other transaction problem                                |            53893 |                       0.99 |
+| Fraud or scam                                            |            11179 |                       0.21 |
+| Unauthorized transactions or other transaction problem   |             5758 |                       0.11 |
+| Trouble accessing funds in your mobile or digital wallet |             3038 |                       0.06 |
+| Money was not available when promised                    |             2429 |                       0.04 |
+| Other service problem                                    |             2064 |                       0.04 |
+| Confusing or missing disclosures                         |             1970 |                       0.04 |
+| Managing, opening, or closing your mobile wallet account |             1773 |                       0.03 |
+| Problem with customer service                            |              547 |                       0.01 |
+| Unexpected or other fees                                 |              647 |                       0.01 |
+| Wrong amount charged or received                         |              459 |                       0.01 |
+| Confusing or misleading advertising or marketing         |              350 |                       0.01 |
+| Lost or stolen money order                               |              224 |                       0.00 |
+| Problem adding money                                     |              195 |                       0.00 |
+| Incorrect exchange rate                                  |               29 |                       0.00 |
+| Overdraft, savings, or rewards features                  |               64 |                       0.00 |
++----------------------------------------------------------+------------------+----------------------------+
+16 rows in set (2 min 52.82 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where product = 'Checking or savings account' group by issue order by issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+----------------------------+
+| issue                                                           | total_complaints | issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+----------------------------+
+| Managing an account                                             |            44959 |                       0.83 |
+| Problem caused by your funds being low                          |            11939 |                       0.22 |
+| Closing an account                                              |            10178 |                       0.19 |
+| Problem with a lender or other company charging your account    |             9609 |                       0.18 |
+| Opening an account                                              |             6957 |                       0.13 |
+| Incorrect information on your report                            |              224 |                       0.00 |
+| Problem with a company's investigation into an existing problem |              169 |                       0.00 |
+| Unable to get your credit report or credit score                |               10 |                       0.00 |
+| Credit monitoring or identity theft protection services         |               35 |                       0.00 |
+| Problem with fraud alerts or security freezes                   |               51 |                       0.00 |
+| Improper use of your report                                     |               64 |                       0.00 |
++-----------------------------------------------------------------+------------------+----------------------------+
+11 rows in set (3 min 12.47 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where sub_issue = 'Information belongs to someone else' group by issue order by sub_issue_complaint_percentage desc;
++--------------------------------------+------------------+--------------------------------+
+| issue                                | total_complaints | sub_issue_complaint_percentage |
++--------------------------------------+------------------+--------------------------------+
+| Incorrect information on your report |          1925846 |                          35.38 |
++--------------------------------------+------------------+--------------------------------+
+1 row in set (3 min 24.23 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where sub_issue = 'Reporting company used your report improperly' group by issue order by sub_issue_complaint_percentage desc;
++-----------------------------+------------------+--------------------------------+
+| issue                       | total_complaints | sub_issue_complaint_percentage |
++-----------------------------+------------------+--------------------------------+
+| Improper use of your report |           849165 |                          15.60 |
++-----------------------------+------------------+--------------------------------+
+1 row in set (3 min 12.10 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where sub_issue = 'Their investigation did not fix an error on your report' group by issue order by sub_issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+--------------------------------+
+| issue                                                           | total_complaints | sub_issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+--------------------------------+
+| Problem with a company's investigation into an existing problem |           503932 |                           9.26 |
+| Problem with a company's investigation into an existing issue   |             1466 |                           0.03 |
++-----------------------------------------------------------------+------------------+--------------------------------+
+2 rows in set (3 min 11.08 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where sub_issue = 'Account information incorrect' group by issue order by sub_issue_complaint_percentage desc;
++--------------------------------------+------------------+--------------------------------+
+| issue                                | total_complaints | sub_issue_complaint_percentage |
++--------------------------------------+------------------+--------------------------------+
+| Incorrect information on your report |           478718 |                           8.80 |
++--------------------------------------+------------------+--------------------------------+
+1 row in set (3 min 10.38 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where sub_issue = 'Investigation took more than 30 days' group by issue order by sub_issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+--------------------------------+
+| issue                                                           | total_complaints | sub_issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+--------------------------------+
+| Problem with a company's investigation into an existing problem |           289411 |                           5.32 |
+| Problem with a company's investigation into an existing issue   |              222 |                           0.00 |
++-----------------------------------------------------------------+------------------+--------------------------------+
+2 rows in set (3 min 13.21 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where sub_issue = 'Account status incorrect' group by issue order by sub_issue_complaint_percentage desc;
++--------------------------------------+------------------+--------------------------------+
+| issue                                | total_complaints | sub_issue_complaint_percentage |
++--------------------------------------+------------------+--------------------------------+
+| Incorrect information on your report |           264725 |                           4.86 |
++--------------------------------------+------------------+--------------------------------+
+1 row in set (3 min 11.74 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where sub_issue = 'Credit inquiries on your report that you don''t recognize' group by issue order by sub_issue_complaint_percentage desc;
++-----------------------------+------------------+--------------------------------+
+| issue                       | total_complaints | sub_issue_complaint_percentage |
++-----------------------------+------------------+--------------------------------+
+| Improper use of your report |           247023 |                           4.54 |
++-----------------------------+------------------+--------------------------------+
+1 row in set (2 min 49.90 sec)
+
 mysql>
