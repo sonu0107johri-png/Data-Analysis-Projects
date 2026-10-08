@@ -5488,4 +5488,244 @@ mysql> select company, count(*) as total_complaints, round(count(*) * 100.0 / 54
 +------------------------------------------------------------------------------------+------------------+----------------------+
 3967 rows in set (6 min 48.96 sec)
 
-mysql>
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_product_complaint_percentage from consumer_complaints where issue = 'Managing an account' group by product order by issue_product_complaint_percentage desc;
++-----------------------------------------------------+------------------+------------------------------------+
+| product                                             | total_complaints | issue_product_complaint_percentage |
++-----------------------------------------------------+------------------+------------------------------------+
+| Checking or savings account                         |            44959 |                               0.83 |
+| Credit reporting or other personal consumer reports |                1 |                               0.00 |
++-----------------------------------------------------+------------------+------------------------------------+
+2 rows in set (3 min 19.32 sec)
+
+mysql> select sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where issue = 'Managing an account' group by sub_issue order by sub_issue_complaint_percentage desc;
++----------------------------------------------+------------------+--------------------------------+
+| sub_issue                                    | total_complaints | sub_issue_complaint_percentage |
++----------------------------------------------+------------------+--------------------------------+
+| Deposits and withdrawals                     |            17379 |                           0.32 |
+| Problem using a debit or ATM card            |             9792 |                           0.18 |
+| Funds not handled or disbursed as instructed |             5217 |                           0.10 |
+| Banking errors                               |             4261 |                           0.08 |
+| Problem accessing account                    |             3396 |                           0.06 |
+| Problem making or receiving payments         |             2741 |                           0.05 |
+| Cashing a check                              |             1010 |                           0.02 |
+| Fee problem                                  |              696 |                           0.01 |
+| Deposits or withdrawals                      |              336 |                           0.01 |
+| Problem with fees or penalties               |               53 |                           0.00 |
+| Problem with renewal                         |               79 |                           0.00 |
++----------------------------------------------+------------------+--------------------------------+
+11 rows in set (3 min 11.52 sec)
+
+mysql> select sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as sub_issue_complaint_percentage from consumer_complaints where product = "Checking or savings account product" and issue = 'Managing an account' group by sub_issue order by sub_issue_complaint_percentage desc;
+Empty set (2 min 32.80 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_product_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' group by product order by company_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------+
+| product                                                 | total_complaints | company_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------+
+| Credit reporting or other personal consumer reports     |          1644975 |                                30.22 |
+| Debt collection                                         |            26438 |                                 0.49 |
+| Credit card                                             |             8358 |                                 0.15 |
+| Checking or savings account                             |              132 |                                 0.00 |
+| Debt or credit management                               |              200 |                                 0.00 |
+| Money transfer, virtual currency, or money service      |               11 |                                 0.00 |
+| Mortgage                                                |               15 |                                 0.00 |
+| Payday loan, title loan, personal loan, or advance loan |               46 |                                 0.00 |
+| Prepaid card                                            |               89 |                                 0.00 |
+| Student loan                                            |              106 |                                 0.00 |
+| Vehicle loan or lease                                   |              166 |                                 0.00 |
++---------------------------------------------------------+------------------+--------------------------------------+
+11 rows in set (4 min 15.58 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_product__issue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and product = 'Credit reporting or other personal consumer reports' group by issue order by company_product__issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+---------------------------------------------+
+| issue                                                           | total_complaints | company_product__issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+---------------------------------------------+
+| Incorrect information on your report                            |           962934 |                                       17.69 |
+| Improper use of your report                                     |           375851 |                                        6.91 |
+| Problem with a company's investigation into an existing problem |           291466 |                                        5.35 |
+| Unable to get your credit report or credit score                |             8465 |                                        0.16 |
+| Problem with fraud alerts or security freezes                   |             3898 |                                        0.07 |
+| Credit monitoring or identity theft protection services         |             1940 |                                        0.04 |
+| Problem with a company's investigation into an existing issue   |              346 |                                        0.01 |
+| Identity theft protection or other monitoring services          |               74 |                                        0.00 |
+| Dealing with your lender or servicer                            |                1 |                                        0.00 |
++-----------------------------------------------------------------+------------------+---------------------------------------------+
+9 rows in set (3 min 52.73 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' group by issue order by company_issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+------------------------------------+
+| issue                                                           | total_complaints | company_issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+------------------------------------+
+| Incorrect information on your report                            |           966972 |                              17.77 |
+| Improper use of your report                                     |           375893 |                               6.91 |
+| Problem with a company's investigation into an existing problem |           294892 |                               5.42 |
+| Written notification about debt                                 |            13121 |                               0.24 |
+| Attempts to collect debt not owed                               |            11711 |                               0.22 |
+| Unable to get your credit report or credit score                |             8466 |                               0.16 |
+| Problem with fraud alerts or security freezes                   |             3904 |                               0.07 |
+| Credit monitoring or identity theft protection services         |             1945 |                               0.04 |
+| Getting a credit card                                           |              823 |                               0.02 |
+| False statements or representation                              |              778 |                               0.01 |
+| Problem with a company's investigation into an existing issue   |              346 |                               0.01 |
+| Took or threatened to take negative or legal action             |              680 |                               0.01 |
+| Closing on a mortgage                                           |                3 |                               0.00 |
+| Closing your account                                            |               29 |                               0.00 |
+| Communication tactics                                           |               77 |                               0.00 |
+| Confusing or misleading advertising or marketing                |               22 |                               0.00 |
+| Confusing or missing disclosures                                |              104 |                               0.00 |
+| Credit limit changed                                            |                2 |                               0.00 |
+| Dealing with your lender or servicer                            |               27 |                               0.00 |
+| Didn't provide services promised                                |               33 |                               0.00 |
+| Electronic communications                                       |               45 |                               0.00 |
+| Fees or interest                                                |                9 |                               0.00 |
+| Fraud or scam                                                   |                1 |                               0.00 |
+| Getting a line of credit                                        |                3 |                               0.00 |
+| Getting a loan                                                  |                5 |                               0.00 |
+| Getting a loan or lease                                         |               52 |                               0.00 |
+| Getting the loan                                                |                3 |                               0.00 |
+| Identity theft protection or other monitoring services          |               74 |                               0.00 |
+| Loan payment wasn't credited to your account                    |                1 |                               0.00 |
+| Managing an account                                             |                2 |                               0.00 |
+| Managing the loan or lease                                      |                9 |                               0.00 |
+| Opening an account                                              |              113 |                               0.00 |
+| Other features, terms, or problems                              |               22 |                               0.00 |
+| Other transaction problem                                       |                5 |                               0.00 |
+| Problem caused by your funds being low                          |                2 |                               0.00 |
+| Problem getting a card or closing an account                    |               45 |                               0.00 |
+| Problem when making payments                                    |               14 |                               0.00 |
+| Advertising and marketing, including promotional offers         |               10 |                               0.00 |
+| Applying for a mortgage or refinancing an existing mortgage     |                4 |                               0.00 |
+| Problem with a lender or other company charging your account    |                5 |                               0.00 |
+| Problem with a purchase shown on your statement                 |               21 |                               0.00 |
+| Problem with additional add-on products or services             |                1 |                               0.00 |
+| Problem with customer service                                   |               18 |                               0.00 |
+| Can't contact lender or servicer                                |                3 |                               0.00 |
+| Problem with the payoff process at the end of the loan          |                3 |                               0.00 |
+| Problems at the end of the loan or lease                        |                1 |                               0.00 |
+| Received a loan you didn't apply for                            |                5 |                               0.00 |
+| Charged fees or interest you didn't expect                      |                2 |                               0.00 |
+| Struggling to pay mortgage                                      |                1 |                               0.00 |
+| Struggling to pay your bill                                     |                4 |                               0.00 |
+| Struggling to pay your loan                                     |                7 |                               0.00 |
+| Struggling to repay your loan                                   |               15 |                               0.00 |
+| Threatened to contact someone or share information improperly   |               26 |                               0.00 |
+| Charged upfront or unexpected fees                              |               15 |                               0.00 |
+| Trouble accessing funds in your mobile or digital wallet        |                1 |                               0.00 |
+| Repossession                                                    |               92 |                               0.00 |
+| Trouble using your card                                         |                9 |                               0.00 |
+| Closing an account                                              |                1 |                               0.00 |
+| Unauthorized transactions or other transaction problem          |                1 |                               0.00 |
+| Unauthorized withdrawals or charges                             |               12 |                               0.00 |
+| Unexpected fees                                                 |                1 |                               0.00 |
+| Unexpected or other fees                                        |                3 |                               0.00 |
+| Vehicle was repossessed or sold the vehicle                     |                1 |                               0.00 |
+| Trouble using the card                                          |               41 |                               0.00 |
++-----------------------------------------------------------------+------------------+------------------------------------+
+64 rows in set (4 min 17.60 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' group by issue order by company_issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+------------------------------------+
+| issue                                                           | total_complaints | company_issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+------------------------------------+
+| Incorrect information on your report                            |           927295 |                              17.04 |
+| Improper use of your report                                     |           372379 |                               6.84 |
+| Problem with a company's investigation into an existing problem |           268849 |                               4.94 |
+| Attempts to collect debt not owed                               |            11417 |                               0.21 |
+| Written notification about debt                                 |            11354 |                               0.21 |
+| Problem with fraud alerts or security freezes                   |             2882 |                               0.05 |
+| Credit monitoring or identity theft protection services         |             2004 |                               0.04 |
+| Unable to get your credit report or credit score                |             1879 |                               0.03 |
+| Getting a credit card                                           |              940 |                               0.02 |
+| False statements or representation                              |              912 |                               0.02 |
+| Problem with a company's investigation into an existing issue   |              319 |                               0.01 |
+| Took or threatened to take negative or legal action             |              549 |                               0.01 |
+| Closing an account                                              |                4 |                               0.00 |
+| Closing on a mortgage                                           |                1 |                               0.00 |
+| Closing your account                                            |               40 |                               0.00 |
+| Communication tactics                                           |               95 |                               0.00 |
+| Confusing or misleading advertising or marketing                |               18 |                               0.00 |
+| Confusing or missing disclosures                                |              100 |                               0.00 |
+| Credit limit changed                                            |                2 |                               0.00 |
+| Dealing with your lender or servicer                            |               38 |                               0.00 |
+| Didn't provide services promised                                |               28 |                               0.00 |
+| Electronic communications                                       |               52 |                               0.00 |
+| Fees or interest                                                |                7 |                               0.00 |
+| Fraud or scam                                                   |                3 |                               0.00 |
+| Getting a line of credit                                        |                4 |                               0.00 |
+| Getting a loan                                                  |                4 |                               0.00 |
+| Getting the loan                                                |                3 |                               0.00 |
+| Identity theft protection or other monitoring services          |               80 |                               0.00 |
+| Loan payment wasn't credited to your account                    |                2 |                               0.00 |
+| Managing an account                                             |                5 |                               0.00 |
+| Getting a loan or lease                                         |               66 |                               0.00 |
+| Opening an account                                              |              118 |                               0.00 |
+| Other features, terms, or problems                              |               27 |                               0.00 |
+| Problem caused by your funds being low                          |                2 |                               0.00 |
+| Problem getting a card or closing an account                    |               30 |                               0.00 |
+| Problem when making payments                                    |               16 |                               0.00 |
+| Advertising and marketing, including promotional offers         |               16 |                               0.00 |
+| Managing the loan or lease                                      |               14 |                               0.00 |
+| Problem with a lender or other company charging your account    |                3 |                               0.00 |
+| Problem with a purchase or transfer                             |                1 |                               0.00 |
+| Problem with a purchase shown on your statement                 |               19 |                               0.00 |
+| Problem with additional add-on products or services             |                3 |                               0.00 |
+| Problem with customer service                                   |               29 |                               0.00 |
+| Applying for a mortgage or refinancing an existing mortgage     |                2 |                               0.00 |
+| Problem with the payoff process at the end of the loan          |                2 |                               0.00 |
+| Can't contact lender or servicer                                |                1 |                               0.00 |
+| Received a loan you didn't apply for                            |                5 |                               0.00 |
+| Repossession                                                    |              112 |                               0.00 |
+| Struggling to pay mortgage                                      |                1 |                               0.00 |
+| Struggling to pay your bill                                     |                5 |                               0.00 |
+| Struggling to pay your loan                                     |                5 |                               0.00 |
+| Struggling to repay your loan                                   |               10 |                               0.00 |
+| Problems at the end of the loan or lease                        |                5 |                               0.00 |
+| Charged fees or interest you didn't expect                      |                3 |                               0.00 |
+| Trouble during payment process                                  |                2 |                               0.00 |
+| Trouble using your card                                         |               13 |                               0.00 |
+| Charged upfront or unexpected fees                              |               16 |                               0.00 |
+| Unauthorized withdrawals or charges                             |               12 |                               0.00 |
+| Unexpected or other fees                                        |                1 |                               0.00 |
+| Threatened to contact someone or share information improperly   |               45 |                               0.00 |
++-----------------------------------------------------------------+------------------+------------------------------------+
+60 rows in set (4 min 17.72 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and issue = 'Incorrect information on your report' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           962934 |                                      17.69 |
+| Credit card                                             |             3976 |                                       0.07 |
+| Checking or savings account                             |                5 |                                       0.00 |
+| Mortgage                                                |                6 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |               10 |                                       0.00 |
+| Student loan                                            |               36 |                                       0.00 |
+| Vehicle loan or lease                                   |                5 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+7 rows in set (3 min 58.55 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and issue = 'Improper use of your report' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           375851 |                                       6.91 |
+| Credit card                                             |               30 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |                2 |                                       0.00 |
+| Student loan                                            |               10 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+4 rows in set (3 min 28.29 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and issue = 'Problem with a company''s investigation into an existing problem' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           291466 |                                       5.35 |
+| Credit card                                             |             3407 |                                       0.06 |
+| Student loan                                            |               13 |                                       0.00 |
+| Checking or savings account                             |                1 |                                       0.00 |
+| Vehicle loan or lease                                   |                3 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |                2 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+6 rows in set (3 min 25.09 sec)
+
+mysql> 
