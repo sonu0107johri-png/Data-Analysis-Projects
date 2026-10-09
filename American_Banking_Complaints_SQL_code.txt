@@ -5728,4 +5728,1048 @@ mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (sel
 +---------------------------------------------------------+------------------+--------------------------------------------+
 6 rows in set (3 min 25.09 sec)
 
-mysql> 
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and issue = 'Incorrect information on your report' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           924588 |                                      16.99 |
+| Credit card                                             |             2644 |                                       0.05 |
+| Checking or savings account                             |                2 |                                       0.00 |
+| Mortgage                                                |                3 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |               13 |                                       0.00 |
+| Student loan                                            |               39 |                                       0.00 |
+| Vehicle loan or lease                                   |                6 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+7 rows in set (1 min 14.70 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and issue = 'Improper use of your report' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           372318 |                                       6.84 |
+| Credit card                                             |               48 |                                       0.00 |
+| Mortgage                                                |                1 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |                1 |                                       0.00 |
+| Student loan                                            |                9 |                                       0.00 |
+| Vehicle loan or lease                                   |                2 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+6 rows in set (1 min 8.99 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and issue = 'Problem with a company''s investigation into an existing problem' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           266016 |                                       4.89 |
+| Credit card                                             |             2818 |                                       0.05 |
+| Vehicle loan or lease                                   |                3 |                                       0.00 |
+| Student loan                                            |               10 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |                2 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+5 rows in set (1 min 9.27 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_product_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' group by product order by company_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------+
+| product                                                 | total_complaints | company_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------+
+| Credit reporting or other personal consumer reports     |          1570073 |                                28.85 |
+| Debt collection                                         |            24424 |                                 0.45 |
+| Credit card                                             |             6600 |                                 0.12 |
+| Checking or savings account                             |              135 |                                 0.00 |
+| Debt or credit management                               |              201 |                                 0.00 |
+| Money transfer, virtual currency, or money service      |                4 |                                 0.00 |
+| Mortgage                                                |               11 |                                 0.00 |
+| Payday loan, title loan, personal loan, or advance loan |               48 |                                 0.00 |
+| Prepaid card                                            |               32 |                                 0.00 |
+| Student loan                                            |              109 |                                 0.00 |
+| Vehicle loan or lease                                   |              212 |                                 0.00 |
++---------------------------------------------------------+------------------+--------------------------------------+
+11 rows in set (1 min 17.57 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_product_issue_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and product = 'Credit reporting or other personal consumer reports' group by issue order by company_product_issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+--------------------------------------------+
+| issue                                                           | total_complaints | company_product_issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+--------------------------------------------+
+| Incorrect information on your report                            |           924588 |                                      16.99 |
+| Improper use of your report                                     |           372318 |                                       6.84 |
+| Problem with a company's investigation into an existing problem |           266016 |                                       4.89 |
+| Problem with fraud alerts or security freezes                   |             2877 |                                       0.05 |
+| Credit monitoring or identity theft protection services         |             1994 |                                       0.04 |
+| Unable to get your credit report or credit score                |             1878 |                                       0.03 |
+| Problem with a company's investigation into an existing issue   |              319 |                                       0.01 |
+| Dealing with your lender or servicer                            |                1 |                                       0.00 |
+| Identity theft protection or other monitoring services          |               80 |                                       0.00 |
+| Problem with a purchase shown on your statement                 |                1 |                                       0.00 |
+| Problems at the end of the loan or lease                        |                1 |                                       0.00 |
++-----------------------------------------------------------------+------------------+--------------------------------------------+
+11 rows in set (1 min 21.91 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_product_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' group by product order by company_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------+
+| product                                                 | total_complaints | company_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------+
+| Credit reporting or other personal consumer reports     |          1361887 |                                25.02 |
+| Debt collection                                         |            19779 |                                 0.36 |
+| Credit card                                             |             6247 |                                 0.11 |
+| Debt or credit management                               |              349 |                                 0.01 |
+| Checking or savings account                             |              181 |                                 0.00 |
+| Money transfer, virtual currency, or money service      |               20 |                                 0.00 |
+| Mortgage                                                |               15 |                                 0.00 |
+| Payday loan, title loan, personal loan, or advance loan |               57 |                                 0.00 |
+| Prepaid card                                            |               24 |                                 0.00 |
+| Student loan                                            |               96 |                                 0.00 |
+| Vehicle loan or lease                                   |              166 |                                 0.00 |
++---------------------------------------------------------+------------------+--------------------------------------+
+11 rows in set (1 min 17.51 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' group by issue order by company_issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+------------------------------------+
+| issue                                                           | total_complaints | company_issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+------------------------------------+
+| Incorrect information on your report                            |           801231 |                              14.72 |
+| Improper use of your report                                     |           294760 |                               5.42 |
+| Problem with a company's investigation into an existing problem |           262426 |                               4.82 |
+| Attempts to collect debt not owed                               |             9832 |                               0.18 |
+| Written notification about debt                                 |             8184 |                               0.15 |
+| Unable to get your credit report or credit score                |             3031 |                               0.06 |
+| Problem with fraud alerts or security freezes                   |             2976 |                               0.05 |
+| Credit monitoring or identity theft protection services         |             2192 |                               0.04 |
+| Getting a credit card                                           |              908 |                               0.02 |
+| False statements or representation                              |              894 |                               0.02 |
+| Problem with a company's investigation into an existing issue   |              436 |                               0.01 |
+| Took or threatened to take negative or legal action             |              688 |                               0.01 |
+| Charged upfront or unexpected fees                              |               28 |                               0.00 |
+| Closing an account                                              |                8 |                               0.00 |
+| Closing your account                                            |               34 |                               0.00 |
+| Communication tactics                                           |               87 |                               0.00 |
+| Confusing or misleading advertising or marketing                |               35 |                               0.00 |
+| Confusing or missing disclosures                                |              134 |                               0.00 |
+| Credit limit changed                                            |                1 |                               0.00 |
+| Dealing with your lender or servicer                            |               34 |                               0.00 |
+| Didn't provide services promised                                |               77 |                               0.00 |
+| Electronic communications                                       |               55 |                               0.00 |
+| Fees or interest                                                |                7 |                               0.00 |
+| Fraud or scam                                                   |                6 |                               0.00 |
+| Getting a line of credit                                        |                7 |                               0.00 |
+| Getting a loan                                                  |                5 |                               0.00 |
+| Getting a loan or lease                                         |               60 |                               0.00 |
+| Identity theft protection or other monitoring services          |              105 |                               0.00 |
+| Issues with repayment                                           |                1 |                               0.00 |
+| Loan payment wasn't credited to your account                    |                1 |                               0.00 |
+| Managing an account                                             |               26 |                               0.00 |
+| Closing on a mortgage                                           |                2 |                               0.00 |
+| Opening an account                                              |              130 |                               0.00 |
+| Other features, terms, or problems                              |               26 |                               0.00 |
+| Other transaction problem                                       |                7 |                               0.00 |
+| Problem caused by your funds being low                          |                2 |                               0.00 |
+| Problem getting a card or closing an account                    |               22 |                               0.00 |
+| Problem when making payments                                    |               17 |                               0.00 |
+| Managing the loan or lease                                      |                8 |                               0.00 |
+| Advertising and marketing, including promotional offers         |                9 |                               0.00 |
+| Problem with a lender or other company charging your account    |                9 |                               0.00 |
+| Problem with a purchase shown on your statement                 |               43 |                               0.00 |
+| Problem with additional add-on products or services             |                2 |                               0.00 |
+| Problem with customer service                                   |               63 |                               0.00 |
+| Applying for a mortgage or refinancing an existing mortgage     |                3 |                               0.00 |
+| Problem with the payoff process at the end of the loan          |                6 |                               0.00 |
+| Problems at the end of the loan or lease                        |                3 |                               0.00 |
+| Problems receiving the advance                                  |                2 |                               0.00 |
+| Can't contact lender or servicer                                |                1 |                               0.00 |
+| Repossession                                                    |               88 |                               0.00 |
+| Struggling to pay mortgage                                      |                1 |                               0.00 |
+| Struggling to pay your bill                                     |                4 |                               0.00 |
+| Struggling to pay your loan                                     |                5 |                               0.00 |
+| Struggling to repay your loan                                   |               15 |                               0.00 |
+| Threatened to contact someone or share information improperly   |               39 |                               0.00 |
+| Getting the loan                                                |                3 |                               0.00 |
+| Trouble during payment process                                  |                4 |                               0.00 |
+| Trouble using your card                                         |                6 |                               0.00 |
+| Charged fees or interest you didn't expect                      |                6 |                               0.00 |
+| Unauthorized transactions or other transaction problem          |                4 |                               0.00 |
+| Unauthorized withdrawals or charges                             |               15 |                               0.00 |
+| Unexpected or other fees                                        |                3 |                               0.00 |
+| Received a loan you didn't apply for                            |                4 |                               0.00 |
++-----------------------------------------------------------------+------------------+------------------------------------+
+63 rows in set (1 min 15.30 sec)
+
+mysql> select issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_product_issue_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and product = 'Credit reporting or other personal consumer reports' group by issue order by company_product_issue_complaint_percentage desc;
++-----------------------------------------------------------------+------------------+--------------------------------------------+
+| issue                                                           | total_complaints | company_product_issue_complaint_percentage |
++-----------------------------------------------------------------+------------------+--------------------------------------------+
+| Incorrect information on your report                            |           798237 |                                      14.67 |
+| Improper use of your report                                     |           294699 |                                       5.41 |
+| Problem with a company's investigation into an existing problem |           260224 |                                       4.78 |
+| Unable to get your credit report or credit score                |             3028 |                                       0.06 |
+| Problem with fraud alerts or security freezes                   |             2971 |                                       0.05 |
+| Credit monitoring or identity theft protection services         |             2186 |                                       0.04 |
+| Problem with a company's investigation into an existing issue   |              436 |                                       0.01 |
+| Identity theft protection or other monitoring services          |              105 |                                       0.00 |
+| Dealing with your lender or servicer                            |                1 |                                       0.00 |
++-----------------------------------------------------------------+------------------+--------------------------------------------+
+9 rows in set (1 min 12.21 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and issue = 'Incorrect information on your report' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           798237 |                                      14.67 |
+| Credit card                                             |             2951 |                                       0.05 |
+| Checking or savings account                             |                3 |                                       0.00 |
+| Mortgage                                                |                4 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |                9 |                                       0.00 |
+| Student loan                                            |               21 |                                       0.00 |
+| Vehicle loan or lease                                   |                6 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+7 rows in set (1 min 13.64 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and issue = 'Improper use of your report' group by product order by company_issue_product_complaint_percentage desc;
++---------------------------------------------------------+------------------+--------------------------------------------+
+| product                                                 | total_complaints | company_issue_product_complaint_percentage |
++---------------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports     |           294699 |                                       5.41 |
+| Credit card                                             |               44 |                                       0.00 |
+| Student loan                                            |               11 |                                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan |                5 |                                       0.00 |
+| Checking or savings account                             |                1 |                                       0.00 |
++---------------------------------------------------------+------------------+--------------------------------------------+
+5 rows in set (1 min 8.92 sec)
+
+mysql> select product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_issue_product_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and issue = 'Problem with a company''s investigation into an existing problem' group by product order by company_issue_product_complaint_percentage desc;
++-----------------------------------------------------+------------------+--------------------------------------------+
+| product                                             | total_complaints | company_issue_product_complaint_percentage |
++-----------------------------------------------------+------------------+--------------------------------------------+
+| Credit reporting or other personal consumer reports |           260224 |                                       4.78 |
+| Credit card                                         |             2188 |                                       0.04 |
+| Checking or savings account                         |                2 |                                       0.00 |
+| Mortgage                                            |                1 |                                       0.00 |
+| Student loan                                        |               11 |                                       0.00 |
++-----------------------------------------------------+------------------+--------------------------------------------+
+5 rows in set (1 min 9.80 sec)
+
+mysql> select sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_subissue_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' group by sub_issue order by company_subissue_complaint_percentage desc;
++----------------------------------------------------------------------------------------------+------------------+---------------------------------------+
+| sub_issue                                                                                    | total_complaints | company_subissue_complaint_percentage |
++----------------------------------------------------------------------------------------------+------------------+---------------------------------------+
+| Information belongs to someone else                                                          |           567670 |                                 10.43 |
+| Reporting company used your report improperly                                                |           234869 |                                  4.32 |
+| Their investigation did not fix an error on your report                                      |           154336 |                                  2.84 |
+| Account information incorrect                                                                |           127990 |                                  2.35 |
+| Investigation took more than 30 days                                                         |            86851 |                                  1.60 |
+| Account status incorrect                                                                     |            62206 |                                  1.14 |
+| Credit inquiries on your report that you don't recognize                                     |            58506 |                                  1.07 |
+| Personal information incorrect                                                               |            28114 |                                  0.52 |
+| Was not notified of investigation status or results                                          |            12154 |                                  0.22 |
+| Notification didn't disclose it was an attempt to collect a debt                             |             7592 |                                  0.14 |
+| Information is missing that should be on the report                                          |             5717 |                                  0.11 |
+| Debt was result of identity theft                                                            |             5653 |                                  0.10 |
+| Difficulty submitting a dispute or getting information about a dispute over the phone        |             4959 |                                  0.09 |
+| Public record information inaccurate                                                         |             4650 |                                  0.09 |
+| Old information reappears or never goes away                                                 |             4155 |                                  0.08 |
+| Problem with personal statement of dispute                                                   |             4562 |                                  0.08 |
+| Debt is not yours                                                                            |             3855 |                                  0.07 |
+| NULL                                                                                         |             3388 |                                  0.06 |
+| Other problem getting your report or credit score                                            |             2453 |                                  0.05 |
+| Attempted to collect wrong amount                                                            |              827 |                                  0.02 |
+| Card opened without my consent or knowledge                                                  |              866 |                                  0.02 |
+| Problem canceling credit monitoring or identify theft protection service                     |              940 |                                  0.02 |
+| Report provided to employer without your written authorization                               |             1153 |                                  0.02 |
+| Billing dispute for services                                                                 |              399 |                                  0.01 |
+| Didn't receive enough information to verify debt                                             |              402 |                                  0.01 |
+| Didn't receive services that were advertised                                                 |              683 |                                  0.01 |
+| Information is incorrect                                                                     |              670 |                                  0.01 |
+| Problem getting your free annual credit report                                               |              578 |                                  0.01 |
+| Threatened or suggested your credit would be damaged                                         |              463 |                                  0.01 |
+| Account opened without my consent or knowledge                                               |              123 |                                  0.00 |
+| Account reinstatement or redemption after repossession                                       |               25 |                                  0.00 |
+| Account sold or transferred to another company                                               |                2 |                                  0.00 |
+| An existing modification, forbearance plan, short sale, or other loss mitigation relief      |                1 |                                  0.00 |
+| Application denied                                                                           |               36 |                                  0.00 |
+| Banking errors                                                                               |                2 |                                  0.00 |
+| Bankruptcy                                                                                   |                1 |                                  0.00 |
+| Billing problem                                                                              |                7 |                                  0.00 |
+| Called before 8am or after 9pm                                                               |               12 |                                  0.00 |
+| Can't close your account                                                                     |               14 |                                  0.00 |
+| Can't stop withdrawals from your account                                                     |                1 |                                  0.00 |
+| Can't temporarily delay making payments                                                      |                2 |                                  0.00 |
+| Can't use card to make purchases                                                             |                3 |                                  0.00 |
+| Card was charged for something you did not purchase with the card                            |               16 |                                  0.00 |
+| Charged too much interest                                                                    |                2 |                                  0.00 |
+| Collected or attempted to collect exempt funds                                               |                9 |                                  0.00 |
+| Company closed your account                                                                  |               25 |                                  0.00 |
+| Company communicating payment assistance or payment extension options                        |                1 |                                  0.00 |
+| Company explaining amount owed                                                               |                2 |                                  0.00 |
+| Confusing or misleading advertising about the credit card                                    |                4 |                                  0.00 |
+| Confusing or misleading advertising or marketing                                             |                9 |                                  0.00 |
+| Contacted before 8am or after 9pm                                                            |                5 |                                  0.00 |
+| Contacted you after you asked them to stop                                                   |               19 |                                  0.00 |
+| Contacted you instead of your attorney                                                       |                1 |                                  0.00 |
+| Contacted your employer                                                                      |                1 |                                  0.00 |
+| Credit card company forcing arbitration                                                      |                1 |                                  0.00 |
+| Credit card company isn't resolving a dispute about a purchase on your statement             |               26 |                                  0.00 |
+| Credit card company won't increase or decrease your credit limit                             |                1 |                                  0.00 |
+| Credit card company won't work with you while you're going through financial hardship        |                1 |                                  0.00 |
+| Credit denial                                                                                |                7 |                                  0.00 |
+| Damage caused or loss of personal items in vehicle during the actual repossession            |                2 |                                  0.00 |
+| Debt was already discharged in bankruptcy and is no longer owed                              |              135 |                                  0.00 |
+| Debt was paid                                                                                |              189 |                                  0.00 |
+| Deficiency balance after repossession                                                        |                8 |                                  0.00 |
+| Delay in processing application                                                              |                1 |                                  0.00 |
+| Delays with the closing process                                                              |                1 |                                  0.00 |
+| Denied request to lower payments                                                             |                1 |                                  0.00 |
+| Deposits and withdrawals                                                                     |               11 |                                  0.00 |
+| Didn't receive advertised or promotional terms                                               |                5 |                                  0.00 |
+| Didn't receive notice of right to dispute                                                    |              190 |                                  0.00 |
+| Escrow, taxes, or insurance                                                                  |                1 |                                  0.00 |
+| Fees or costs during the application process                                                 |                1 |                                  0.00 |
+| Filed for bankruptcy                                                                         |                2 |                                  0.00 |
+| Frequent or repeated calls                                                                   |               36 |                                  0.00 |
+| Frequent or repeated messages                                                                |               25 |                                  0.00 |
+| Funds not handled or disbursed as instructed                                                 |                2 |                                  0.00 |
+| Funds not received from closed account                                                       |                3 |                                  0.00 |
+| Impersonated attorney, law enforcement, or government official                               |               31 |                                  0.00 |
+| Indicated you were committing crime by not paying debt                                       |               29 |                                  0.00 |
+| Information that should be on the report is missing                                          |               59 |                                  0.00 |
+| Lender trying to repossess or disable the vehicle                                            |                1 |                                  0.00 |
+| Loan balance remaining after the vehicle is repossessed and sold                             |               33 |                                  0.00 |
+| Loan opened without my consent or knowledge                                                  |               50 |                                  0.00 |
+| Money was taken from your account on the wrong day or for the wrong amount                   |                1 |                                  0.00 |
+| Need information about your loan balance or loan terms                                       |                1 |                                  0.00 |
+| Non-sufficient funds and associated fees                                                     |                1 |                                  0.00 |
+| Notice to repossess                                                                          |                7 |                                  0.00 |
+| Other problem                                                                                |               14 |                                  0.00 |
+| Overcharged for something you did purchase with the card                                     |                1 |                                  0.00 |
+| Overdrafts and overdraft fees                                                                |                1 |                                  0.00 |
+| Payment process                                                                              |                1 |                                  0.00 |
+| Privacy issues                                                                               |               11 |                                  0.00 |
+| Problem accessing account                                                                    |                5 |                                  0.00 |
+| Problem during payment process                                                               |               12 |                                  0.00 |
+| Problem lowering your monthly payments                                                       |                1 |                                  0.00 |
+| Problem making or receiving payments                                                         |                4 |                                  0.00 |
+| Problem related to refinancing                                                               |                1 |                                  0.00 |
+| Problem using a debit or ATM card                                                            |                2 |                                  0.00 |
+| Problem while selling or giving up the vehicle                                               |                1 |                                  0.00 |
+| Problem with fees                                                                            |                3 |                                  0.00 |
+| Problem with fees charged                                                                    |                1 |                                  0.00 |
+| Problem with forgiveness, cancellation, or discharge                                         |               10 |                                  0.00 |
+| Problem with product or service terms changing                                               |              205 |                                  0.00 |
+| Problem with your payment plan                                                               |                2 |                                  0.00 |
+| Received bad information about your loan                                                     |               24 |                                  0.00 |
+| Received unsolicited financial product or insurance offers after opting out                  |              232 |                                  0.00 |
+| Received unwanted marketing or advertising                                                   |               70 |                                  0.00 |
+| Seized or attempted to seize your property                                                   |                7 |                                  0.00 |
+| Sent card you never applied for                                                              |                5 |                                  0.00 |
+| Setting up an escrow account for taxes and insurance                                         |                1 |                                  0.00 |
+| Sued you in a state where you do not live or did not sign for the debt                       |                1 |                                  0.00 |
+| Sued you without properly notifying you of lawsuit                                           |                1 |                                  0.00 |
+| Talked to a third-party about your debt                                                      |               18 |                                  0.00 |
+| Threatened to arrest you or take you to jail if you do not pay                               |              184 |                                  0.00 |
+| Threatened to sue you for very old debt                                                      |               20 |                                  0.00 |
+| Threatened to turn you in to immigration or deport you                                       |                3 |                                  0.00 |
+| Told you not to respond to a lawsuit they filed against you                                  |                7 |                                  0.00 |
+| Transaction was not authorized                                                               |                7 |                                  0.00 |
+| Trouble closing card                                                                         |                2 |                                  0.00 |
+| Trouble getting, activating, or registering a card                                           |               20 |                                  0.00 |
+| Trouble with how payments are being handled                                                  |                9 |                                  0.00 |
+| Trying to communicate with the company to fix an issue while managing or servicing your loan |                2 |                                  0.00 |
+| Trying to communicate with the company to fix an issue with the application process          |                1 |                                  0.00 |
+| Unable to open an account                                                                    |                7 |                                  0.00 |
+| Unable to receive car title or other problem after the loan is paid off                      |                1 |                                  0.00 |
+| Unexpected increase in interest rate                                                         |                2 |                                  0.00 |
+| Used obscene, profane, or other abusive language                                             |               27 |                                  0.00 |
+| Voluntary repossession                                                                       |                9 |                                  0.00 |
+| You never received your bill or did not know a payment was due                               |                3 |                                  0.00 |
+| You told them to stop contacting you, but they keep trying                                   |               37 |                                  0.00 |
++----------------------------------------------------------------------------------------------+------------------+---------------------------------------+
+129 rows in set (1 min 18.01 sec)
+
+mysql> select sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_subissue_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' group by sub_issue order by company_subissue_complaint_percentage desc;
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------+---------------------------------------+
+| sub_issue                                                                                                                                         | total_complaints | company_subissue_complaint_percentage |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------+---------------------------------------+
+| Information belongs to someone else                                                                                                               |           629943 |                                 11.57 |
+| Reporting company used your report improperly                                                                                                     |           279531 |                                  5.14 |
+| Account information incorrect                                                                                                                     |           162094 |                                  2.98 |
+| Their investigation did not fix an error on your report                                                                                           |           149104 |                                  2.74 |
+| Investigation took more than 30 days                                                                                                              |            97531 |                                  1.79 |
+| Credit inquiries on your report that you don't recognize                                                                                          |            91102 |                                  1.67 |
+| Account status incorrect                                                                                                                          |            81585 |                                  1.50 |
+| Personal information incorrect                                                                                                                    |            35511 |                                  0.65 |
+| Was not notified of investigation status or results                                                                                               |            13263 |                                  0.24 |
+| Notification didn't disclose it was an attempt to collect a debt                                                                                  |            10704 |                                  0.20 |
+| Public record information inaccurate                                                                                                              |             7299 |                                  0.13 |
+| Debt was result of identity theft                                                                                                                 |             6213 |                                  0.11 |
+| Information is missing that should be on the report                                                                                               |             5845 |                                  0.11 |
+| Debt is not yours                                                                                                                                 |             4835 |                                  0.09 |
+| Difficulty submitting a dispute or getting information about a dispute over the phone                                                             |             4870 |                                  0.09 |
+| Problem with personal statement of dispute                                                                                                        |             4400 |                                  0.08 |
+| Old information reappears or never goes away                                                                                                      |             3966 |                                  0.07 |
+| NULL                                                                                                                                              |             3119 |                                  0.06 |
+| Report provided to employer without your written authorization                                                                                    |             1541 |                                  0.03 |
+| Attempted to collect wrong amount                                                                                                                 |              833 |                                  0.02 |
+| Card opened without my consent or knowledge                                                                                                       |              893 |                                  0.02 |
+| Information is incorrect                                                                                                                          |              999 |                                  0.02 |
+| Other problem getting your report or credit score                                                                                                 |             1355 |                                  0.02 |
+| Problem canceling credit monitoring or identify theft protection service                                                                          |              924 |                                  0.02 |
+| Billing dispute for services                                                                                                                      |              322 |                                  0.01 |
+| Didn't receive enough information to verify debt                                                                                                  |              388 |                                  0.01 |
+| Didn't receive services that were advertised                                                                                                      |              633 |                                  0.01 |
+| Problem getting your free annual credit report                                                                                                    |              524 |                                  0.01 |
+| Threatened or suggested your credit would be damaged                                                                                              |              503 |                                  0.01 |
+| Account opened without my consent or knowledge                                                                                                    |              111 |                                  0.00 |
+| Account reinstatement or redemption after repossession                                                                                            |               49 |                                  0.00 |
+| Account sold or transferred to another company                                                                                                    |                2 |                                  0.00 |
+| Application denials                                                                                                                               |                2 |                                  0.00 |
+| Application denied                                                                                                                                |               41 |                                  0.00 |
+| Banking errors                                                                                                                                    |                1 |                                  0.00 |
+| Bankruptcy                                                                                                                                        |                1 |                                  0.00 |
+| Billing problem                                                                                                                                   |                8 |                                  0.00 |
+| Bounced checks or returned payments                                                                                                               |                1 |                                  0.00 |
+| Called before 8am or after 9pm                                                                                                                    |                5 |                                  0.00 |
+| Can't close your account                                                                                                                          |                8 |                                  0.00 |
+| Can't use card to make purchases                                                                                                                  |                4 |                                  0.00 |
+| Card company isn't resolving a dispute about a purchase or transfer                                                                               |                1 |                                  0.00 |
+| Card was charged for something you did not purchase with the card                                                                                 |               14 |                                  0.00 |
+| Charged too much interest                                                                                                                         |                2 |                                  0.00 |
+| Collected or attempted to collect exempt funds                                                                                                    |                4 |                                  0.00 |
+| Company closed your account                                                                                                                       |               36 |                                  0.00 |
+| Company explaining amount owed                                                                                                                    |                3 |                                  0.00 |
+| Confusing or misleading advertising about the credit card                                                                                         |                5 |                                  0.00 |
+| Confusing or misleading advertising or marketing                                                                                                  |                6 |                                  0.00 |
+| Contacted before 8am or after 9pm                                                                                                                 |                3 |                                  0.00 |
+| Contacted you after you asked them to stop                                                                                                        |               12 |                                  0.00 |
+| Contacted you instead of your attorney                                                                                                            |                1 |                                  0.00 |
+| Contacted your employer                                                                                                                           |                3 |                                  0.00 |
+| Credit card company forcing arbitration                                                                                                           |                1 |                                  0.00 |
+| Credit card company isn't resolving a dispute about a purchase on your statement                                                                  |                4 |                                  0.00 |
+| Credit card company won't increase or decrease your credit limit                                                                                  |                7 |                                  0.00 |
+| Credit card company won't work with you while you're going through financial hardship                                                             |                2 |                                  0.00 |
+| Credit denial                                                                                                                                     |                8 |                                  0.00 |
+| Debt was already discharged in bankruptcy and is no longer owed                                                                                   |              167 |                                  0.00 |
+| Debt was paid                                                                                                                                     |              202 |                                  0.00 |
+| Deficiency balance after repossession                                                                                                             |                6 |                                  0.00 |
+| Denied request to lower payments                                                                                                                  |                2 |                                  0.00 |
+| Deposits and withdrawals                                                                                                                          |                3 |                                  0.00 |
+| Didn't receive advertised or promotional terms                                                                                                    |               11 |                                  0.00 |
+| Didn't receive notice of right to dispute                                                                                                         |              262 |                                  0.00 |
+| Don't agree with the fees charged                                                                                                                 |                3 |                                  0.00 |
+| Filed for bankruptcy                                                                                                                              |                2 |                                  0.00 |
+| Frequent or repeated calls                                                                                                                        |               44 |                                  0.00 |
+| Frequent or repeated messages                                                                                                                     |               28 |                                  0.00 |
+| High-pressure sales tactics                                                                                                                       |                1 |                                  0.00 |
+| Impersonated attorney, law enforcement, or government official                                                                                    |               45 |                                  0.00 |
+| Indicated you were committing crime by not paying debt                                                                                            |               29 |                                  0.00 |
+| Information that should be on the report is missing                                                                                               |               53 |                                  0.00 |
+| Late or other fees                                                                                                                                |                1 |                                  0.00 |
+| Lender trying to repossess or disable the vehicle                                                                                                 |                4 |                                  0.00 |
+| Loan balance remaining after the vehicle is repossessed and sold                                                                                  |               33 |                                  0.00 |
+| Loan opened without my consent or knowledge                                                                                                       |               55 |                                  0.00 |
+| Loan sold or transferred to another company                                                                                                       |                2 |                                  0.00 |
+| Money was taken from your account on the wrong day or for the wrong amount                                                                        |                2 |                                  0.00 |
+| Need information about your loan balance or loan terms                                                                                            |                1 |                                  0.00 |
+| Notice to repossess                                                                                                                               |                7 |                                  0.00 |
+| Other problem                                                                                                                                     |               14 |                                  0.00 |
+| Overcharged for something you did purchase with the card                                                                                          |                1 |                                  0.00 |
+| Payment process                                                                                                                                   |                1 |                                  0.00 |
+| Privacy issues                                                                                                                                    |               12 |                                  0.00 |
+| Problem during payment process                                                                                                                    |               14 |                                  0.00 |
+| Problem lowering your monthly payments                                                                                                            |                1 |                                  0.00 |
+| Problem making or receiving payments                                                                                                              |                1 |                                  0.00 |
+| Problem while selling or giving up the vehicle                                                                                                    |                1 |                                  0.00 |
+| Problem with additional products or services purchased with the loan                                                                              |                3 |                                  0.00 |
+| Problem with fees                                                                                                                                 |                4 |                                  0.00 |
+| Problem with fees charged                                                                                                                         |                1 |                                  0.00 |
+| Problem with forgiveness, cancellation, or discharge                                                                                              |                9 |                                  0.00 |
+| Problem with paying off the loan                                                                                                                  |                1 |                                  0.00 |
+| Problem with product or service terms changing                                                                                                    |              160 |                                  0.00 |
+| Received bad information about your loan                                                                                                          |               22 |                                  0.00 |
+| Received unsolicited financial product or insurance offers after opting out                                                                       |              205 |                                  0.00 |
+| Received unwanted marketing or advertising                                                                                                        |               45 |                                  0.00 |
+| Seized or attempted to seize your property                                                                                                        |                4 |                                  0.00 |
+| Sent card you never applied for                                                                                                                   |                6 |                                  0.00 |
+| Sued you in a state where you do not live or did not sign for the debt                                                                            |                1 |                                  0.00 |
+| Sued you without properly notifying you of lawsuit                                                                                                |                4 |                                  0.00 |
+| Talked to a third-party about your debt                                                                                                           |               29 |                                  0.00 |
+| Threatened to arrest you or take you to jail if you do not pay                                                                                    |               22 |                                  0.00 |
+| Threatened to sue you for very old debt                                                                                                           |               11 |                                  0.00 |
+| Told you not to respond to a lawsuit they filed against you                                                                                       |                5 |                                  0.00 |
+| Transaction was not authorized                                                                                                                    |                1 |                                  0.00 |
+| Trouble getting, activating, or registering a card                                                                                                |               30 |                                  0.00 |
+| Trouble with how payments are being handled                                                                                                       |               12 |                                  0.00 |
+| Trying to communicate with the company to fix an issue related to modification, forbearance, short sale, deed-in-lieu, bankruptcy, or foreclosure |                1 |                                  0.00 |
+| Trying to communicate with the company to fix an issue while managing or servicing your loan                                                      |                1 |                                  0.00 |
+| Trying to communicate with the company to fix an issue with the loan closing                                                                      |                1 |                                  0.00 |
+| Unable to open an account                                                                                                                         |                7 |                                  0.00 |
+| Unable to receive car title or other problem after the loan is paid off                                                                           |                3 |                                  0.00 |
+| Unexpected increase in interest rate                                                                                                              |                1 |                                  0.00 |
+| Used obscene, profane, or other abusive language                                                                                                  |               27 |                                  0.00 |
+| Voluntary repossession                                                                                                                            |               10 |                                  0.00 |
+| You told them to stop contacting you, but they keep trying                                                                                        |               40 |                                  0.00 |
++---------------------------------------------------------------------------------------------------------------------------------------------------+------------------+---------------------------------------+
+118 rows in set (1 min 17.61 sec)
+
+mysql> select sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as company_subissue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' group by sub_issue order by company_subissue_complaint_percentage desc;
++-----------------------------------------------------------------------------------------+------------------+---------------------------------------+
+| sub_issue                                                                               | total_complaints | company_subissue_complaint_percentage |
++-----------------------------------------------------------------------------------------+------------------+---------------------------------------+
+| Information belongs to someone else                                                     |           662332 |                                 12.17 |
+| Reporting company used your report improperly                                           |           290569 |                                  5.34 |
+| Their investigation did not fix an error on your report                                 |           171927 |                                  3.16 |
+| Account information incorrect                                                           |           158500 |                                  2.91 |
+| Investigation took more than 30 days                                                    |            99858 |                                  1.83 |
+| Account status incorrect                                                                |            91612 |                                  1.68 |
+| Credit inquiries on your report that you don't recognize                                |            83876 |                                  1.54 |
+| Personal information incorrect                                                          |            37010 |                                  0.68 |
+| Was not notified of investigation status or results                                     |            14244 |                                  0.26 |
+| Notification didn't disclose it was an attempt to collect a debt                        |            12515 |                                  0.23 |
+| Other problem getting your report or credit score                                       |             7674 |                                  0.14 |
+| Information is missing that should be on the report                                     |             6996 |                                  0.13 |
+| Debt was result of identity theft                                                       |             6230 |                                  0.11 |
+| Public record information inaccurate                                                    |             5822 |                                  0.11 |
+| Debt is not yours                                                                       |             5156 |                                  0.09 |
+| NULL                                                                                    |             4150 |                                  0.08 |
+| Difficulty submitting a dispute or getting information about a dispute over the phone   |             4618 |                                  0.08 |
+| Old information reappears or never goes away                                            |             4260 |                                  0.08 |
+| Problem with personal statement of dispute                                              |             4591 |                                  0.08 |
+| Problem canceling credit monitoring or identify theft protection service                |              885 |                                  0.02 |
+| Report provided to employer without your written authorization                          |             1238 |                                  0.02 |
+| Attempted to collect wrong amount                                                       |              731 |                                  0.01 |
+| Billing dispute for services                                                            |              299 |                                  0.01 |
+| Card opened without my consent or knowledge                                             |              776 |                                  0.01 |
+| Didn't receive enough information to verify debt                                        |              397 |                                  0.01 |
+| Didn't receive services that were advertised                                            |              658 |                                  0.01 |
+| Information is incorrect                                                                |              393 |                                  0.01 |
+| Problem getting your free annual credit report                                          |              792 |                                  0.01 |
+| Threatened or suggested your credit would be damaged                                    |              461 |                                  0.01 |
+| Account opened without my consent or knowledge                                          |              108 |                                  0.00 |
+| Account reinstatement or redemption after repossession                                  |               45 |                                  0.00 |
+| Account sold or transferred to another company                                          |                1 |                                  0.00 |
+| An existing modification, forbearance plan, short sale, or other loss mitigation relief |                1 |                                  0.00 |
+| Application denials                                                                     |                1 |                                  0.00 |
+| Application denied                                                                      |               37 |                                  0.00 |
+| Banking errors                                                                          |                1 |                                  0.00 |
+| Billing problem                                                                         |                6 |                                  0.00 |
+| Bounced checks or returned payments                                                     |                1 |                                  0.00 |
+| Called before 8am or after 9pm                                                          |                3 |                                  0.00 |
+| Can't close your account                                                                |                6 |                                  0.00 |
+| Can't stop withdrawals from your account                                                |                2 |                                  0.00 |
+| Can't temporarily delay making payments                                                 |                1 |                                  0.00 |
+| Can't use card to make purchases                                                        |                8 |                                  0.00 |
+| Card was charged for something you did not purchase with the card                       |               10 |                                  0.00 |
+| Charged too much interest                                                               |                2 |                                  0.00 |
+| Closing disclosure or other related disclosures                                         |                2 |                                  0.00 |
+| Collected or attempted to collect exempt funds                                          |                5 |                                  0.00 |
+| Company closed your account                                                             |               24 |                                  0.00 |
+| Company explaining amount owed                                                          |                1 |                                  0.00 |
+| Confusing or misleading advertising about the credit card                               |                6 |                                  0.00 |
+| Confusing or misleading advertising or marketing                                        |                8 |                                  0.00 |
+| Confusing or missing disclosures                                                        |                1 |                                  0.00 |
+| Contacted before 8am or after 9pm                                                       |                7 |                                  0.00 |
+| Contacted you after you asked them to stop                                              |               10 |                                  0.00 |
+| Contacted your employer                                                                 |                5 |                                  0.00 |
+| Credit card company forcing arbitration                                                 |                1 |                                  0.00 |
+| Credit card company isn't resolving a dispute about a purchase on your statement        |                9 |                                  0.00 |
+| Credit card company won't work with you while you're going through financial hardship   |                2 |                                  0.00 |
+| Credit denial                                                                           |                6 |                                  0.00 |
+| Damage caused or loss of personal items in vehicle during the actual repossession       |                2 |                                  0.00 |
+| Debt was already discharged in bankruptcy and is no longer owed                         |              156 |                                  0.00 |
+| Debt was paid                                                                           |              169 |                                  0.00 |
+| Deficiency balance after repossession                                                   |                8 |                                  0.00 |
+| Denied request to lower payments                                                        |                4 |                                  0.00 |
+| Didn't receive advertised or promotional terms                                          |                4 |                                  0.00 |
+| Didn't receive notice of right to dispute                                               |              209 |                                  0.00 |
+| Don't want a card provided by your employer or the government                           |                1 |                                  0.00 |
+| Filed for bankruptcy                                                                    |                2 |                                  0.00 |
+| Frequent or repeated calls                                                              |               38 |                                  0.00 |
+| Frequent or repeated messages                                                           |               22 |                                  0.00 |
+| High-pressure sales tactics                                                             |                1 |                                  0.00 |
+| Impersonated attorney, law enforcement, or government official                          |               27 |                                  0.00 |
+| Indicated you were committing crime by not paying debt                                  |               16 |                                  0.00 |
+| Information that should be on the report is missing                                     |               47 |                                  0.00 |
+| Lender trying to repossess or disable the vehicle                                       |                1 |                                  0.00 |
+| Loan balance remaining after the vehicle is repossessed and sold                        |               16 |                                  0.00 |
+| Loan opened without my consent or knowledge                                             |               44 |                                  0.00 |
+| Loan sold or transferred to another company                                             |                2 |                                  0.00 |
+| Need information about your loan balance or loan terms                                  |                1 |                                  0.00 |
+| Notice to repossess                                                                     |                9 |                                  0.00 |
+| Other problem                                                                           |               13 |                                  0.00 |
+| Overcharged for something you did purchase with the card                                |                2 |                                  0.00 |
+| Overdrafts and overdraft fees                                                           |                1 |                                  0.00 |
+| Privacy issues                                                                          |                8 |                                  0.00 |
+| Problem during payment process                                                          |               11 |                                  0.00 |
+| Problem lowering your monthly payments                                                  |                1 |                                  0.00 |
+| Problem making or receiving payments                                                    |                1 |                                  0.00 |
+| Problem with additional products or services purchased with the loan                    |                1 |                                  0.00 |
+| Problem with fees                                                                       |                6 |                                  0.00 |
+| Problem with forgiveness, cancellation, or discharge                                    |               10 |                                  0.00 |
+| Problem with product or service terms changing                                          |              143 |                                  0.00 |
+| Problem with signing the paperwork                                                      |                1 |                                  0.00 |
+| Problem with your payment plan                                                          |                3 |                                  0.00 |
+| Received bad information about your loan                                                |               20 |                                  0.00 |
+| Received unsolicited financial product or insurance offers after opting out             |              210 |                                  0.00 |
+| Received unwanted marketing or advertising                                              |               34 |                                  0.00 |
+| Seized or attempted to seize your property                                              |                2 |                                  0.00 |
+| Sent card you never applied for                                                         |               10 |                                  0.00 |
+| Sued you in a state where you do not live or did not sign for the debt                  |                1 |                                  0.00 |
+| Sued you without properly notifying you of lawsuit                                      |                4 |                                  0.00 |
+| Talked to a third-party about your debt                                                 |               11 |                                  0.00 |
+| Threatened to arrest you or take you to jail if you do not pay                          |              190 |                                  0.00 |
+| Threatened to sue you for very old debt                                                 |               13 |                                  0.00 |
+| Threatened to turn you in to immigration or deport you                                  |                4 |                                  0.00 |
+| Told you not to respond to a lawsuit they filed against you                             |                4 |                                  0.00 |
+| Transaction was not authorized                                                          |                3 |                                  0.00 |
+| Trouble getting a working replacement card                                              |                1 |                                  0.00 |
+| Trouble getting, activating, or registering a card                                      |               43 |                                  0.00 |
+| Trouble using the card to spend money in a store or online                              |               41 |                                  0.00 |
+| Trouble with how payments are being handled                                             |                6 |                                  0.00 |
+| Trying to communicate with the company to fix an issue with the loan closing            |                1 |                                  0.00 |
+| Unable to open an account                                                               |                4 |                                  0.00 |
+| Unable to receive car title or other problem after the loan is paid off                 |                1 |                                  0.00 |
+| Unexpected increase in interest rate                                                    |                1 |                                  0.00 |
+| Used obscene, profane, or other abusive language                                        |               27 |                                  0.00 |
+| Voluntary repossession                                                                  |               10 |                                  0.00 |
+| You told them to stop contacting you, but they keep trying                              |               25 |                                  0.00 |
++-----------------------------------------------------------------------------------------+------------------+---------------------------------------+
+117 rows in set (1 min 21.05 sec)
+
+mysql> select issue, product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as subissue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and sub_issue = 'Information belongs to someone else' group by issue, product order by subissue_complaint_percentage desc;
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| issue                                | product                                                 | total_complaints | subissue_complaint_percentage |
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| Incorrect information on your report | Credit reporting or other personal consumer reports     |           662263 |                         12.17 |
+| Incorrect information on your report | Checking or savings account                             |                4 |                          0.00 |
+| Incorrect information on your report | Credit card                                             |               45 |                          0.00 |
+| Incorrect information on your report | Mortgage                                                |                4 |                          0.00 |
+| Incorrect information on your report | Payday loan, title loan, personal loan, or advance loan |                7 |                          0.00 |
+| Incorrect information on your report | Student loan                                            |                6 |                          0.00 |
+| Incorrect information on your report | Vehicle loan or lease                                   |                3 |                          0.00 |
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+7 rows in set (1 min 13.91 sec)
+
+mysql> select issue, product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as subissue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and sub_issue = 'Reporting company used your report improperly' group by issue, product order by subissue_complaint_percentage desc;
++-----------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| issue                       | product                                                 | total_complaints | subissue_complaint_percentage |
++-----------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| Improper use of your report | Credit reporting or other personal consumer reports     |           290541 |                          5.34 |
+| Improper use of your report | Credit card                                             |               18 |                          0.00 |
+| Improper use of your report | Payday loan, title loan, personal loan, or advance loan |                1 |                          0.00 |
+| Improper use of your report | Student loan                                            |                9 |                          0.00 |
++-----------------------------+---------------------------------------------------------+------------------+-------------------------------+
+4 rows in set (1 min 9.23 sec)
+
+mysql> select issue, product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as subissue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and sub_issue = 'Their investigation did not fix an error on your report' group by issue, product order by subissue_complaint_percentage desc;
++-----------------------------------------------------------------+-----------------------------------------------------+------------------+-------------------------------+
+| issue                                                           | product                                             | total_complaints | subissue_complaint_percentage |
++-----------------------------------------------------------------+-----------------------------------------------------+------------------+-------------------------------+
+| Problem with a company's investigation into an existing problem | Credit reporting or other personal consumer reports |           171529 |                          3.15 |
+| Problem with a company's investigation into an existing issue   | Credit reporting or other personal consumer reports |              218 |                          0.00 |
+| Problem with a company's investigation into an existing problem | Checking or savings account                         |                1 |                          0.00 |
+| Problem with a company's investigation into an existing problem | Credit card                                         |              164 |                          0.00 |
+| Problem with a company's investigation into an existing problem | Student loan                                        |               13 |                          0.00 |
+| Problem with a company's investigation into an existing problem | Vehicle loan or lease                               |                2 |                          0.00 |
++-----------------------------------------------------------------+-----------------------------------------------------+------------------+-------------------------------+
+6 rows in set (1 min 10.09 sec)
+
+mysql> select issue, product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as subissue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and sub_issue = 'Account information incorrect' group by issue, product order by subissue_complaint_percentage desc;
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| issue                                | product                                                 | total_complaints | subissue_complaint_percentage |
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| Incorrect information on your report | Credit reporting or other personal consumer reports     |           158372 |                          2.91 |
+| Incorrect information on your report | Credit card                                             |              105 |                          0.00 |
+| Incorrect information on your report | Payday loan, title loan, personal loan, or advance loan |                1 |                          0.00 |
+| Incorrect information on your report | Student loan                                            |               21 |                          0.00 |
+| Incorrect information on your report | Checking or savings account                             |                1 |                          0.00 |
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+5 rows in set (1 min 8.72 sec)
+
+mysql> select issue, product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as subissue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and sub_issue = 'Investigation took more than 30 days' group by issue, product order by subissue_complaint_percentage desc;
++-----------------------------------------------------------------+-----------------------------------------------------+------------------+-------------------------------+
+| issue                                                           | product                                             | total_complaints | subissue_complaint_percentage |
++-----------------------------------------------------------------+-----------------------------------------------------+------------------+-------------------------------+
+| Problem with a company's investigation into an existing problem | Credit reporting or other personal consumer reports |            99828 |                          1.83 |
+| Problem with a company's investigation into an existing problem | Credit card                                         |                3 |                          0.00 |
+| Problem with a company's investigation into an existing issue   | Credit reporting or other personal consumer reports |               26 |                          0.00 |
+| Problem with a company's investigation into an existing problem | Vehicle loan or lease                               |                1 |                          0.00 |
++-----------------------------------------------------------------+-----------------------------------------------------+------------------+-------------------------------+
+4 rows in set (1 min 10.25 sec)
+
+mysql> select issue, product, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as subissue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and sub_issue = 'Account status incorrect' group by issue, product order by subissue_complaint_percentage desc;
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| issue                                | product                                                 | total_complaints | subissue_complaint_percentage |
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+| Incorrect information on your report | Credit reporting or other personal consumer reports     |            87839 |                          1.61 |
+| Incorrect information on your report | Credit card                                             |             3762 |                          0.07 |
+| Incorrect information on your report | Payday loan, title loan, personal loan, or advance loan |                2 |                          0.00 |
+| Incorrect information on your report | Student loan                                            |                8 |                          0.00 |
+| Incorrect information on your report | Vehicle loan or lease                                   |                1 |                          0.00 |
++--------------------------------------+---------------------------------------------------------+------------------+-------------------------------+
+5 rows in set (1 min 8.53 sec)
+
+mysql> select issue, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as product_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and product = 'Credit reporting or other personal consumer reports' group by issue, sub_issue order by product_complaint_percentage desc;
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+| issue                                                           | sub_issue                                                                             | total_complaints | product_complaint_percentage |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+| Incorrect information on your report                            | Information belongs to someone else                                                   |           662263 |                        12.17 |
+| Improper use of your report                                     | Reporting company used your report improperly                                         |           290541 |                         5.34 |
+| Problem with a company's investigation into an existing problem | Their investigation did not fix an error on your report                               |           171529 |                         3.15 |
+| Incorrect information on your report                            | Account information incorrect                                                         |           158372 |                         2.91 |
+| Problem with a company's investigation into an existing problem | Investigation took more than 30 days                                                  |            99828 |                         1.83 |
+| Incorrect information on your report                            | Account status incorrect                                                              |            87839 |                         1.61 |
+| Improper use of your report                                     | Credit inquiries on your report that you don't recognize                              |            83862 |                         1.54 |
+| Incorrect information on your report                            | Personal information incorrect                                                        |            36991 |                         0.68 |
+| Problem with a company's investigation into an existing problem | Was not notified of investigation status or results                                   |            10987 |                         0.20 |
+| Unable to get your credit report or credit score                | Other problem getting your report or credit score                                     |             7673 |                         0.14 |
+| Incorrect information on your report                            | Information is missing that should be on the report                                   |             6994 |                         0.13 |
+| Incorrect information on your report                            | Public record information inaccurate                                                  |             5780 |                         0.11 |
+| Problem with a company's investigation into an existing problem | Problem with personal statement of dispute                                            |             4541 |                         0.08 |
+| Problem with a company's investigation into an existing problem | Difficulty submitting a dispute or getting information about a dispute over the phone |             4581 |                         0.08 |
+| Incorrect information on your report                            | Old information reappears or never goes away                                          |             4255 |                         0.08 |
+| Problem with fraud alerts or security freezes                   | NULL                                                                                  |             3898 |                         0.07 |
+| Credit monitoring or identity theft protection services         | Problem canceling credit monitoring or identify theft protection service              |              845 |                         0.02 |
+| Improper use of your report                                     | Report provided to employer without your written authorization                        |             1238 |                         0.02 |
+| Incorrect information on your report                            | Information is incorrect                                                              |              393 |                         0.01 |
+| Credit monitoring or identity theft protection services         | Billing dispute for services                                                          |              290 |                         0.01 |
+| Credit monitoring or identity theft protection services         | Didn't receive services that were advertised                                          |              643 |                         0.01 |
+| Unable to get your credit report or credit score                | Problem getting your free annual credit report                                        |              792 |                         0.01 |
+| Identity theft protection or other monitoring services          | Problem with product or service terms changing                                        |               10 |                         0.00 |
+| Identity theft protection or other monitoring services          | Problem canceling credit monitoring or identify theft protection service              |               37 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Difficulty submitting a dispute or getting information about a dispute over the phone |               34 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Investigation took more than 30 days                                                  |               26 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Problem with personal statement of dispute                                            |               47 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Their investigation did not fix an error on your report                               |              218 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Was not notified of investigation status or results                                   |               21 |                         0.00 |
+| Identity theft protection or other monitoring services          | Didn't receive services that were advertised                                          |               14 |                         0.00 |
+| Identity theft protection or other monitoring services          | Billing dispute for services                                                          |                9 |                         0.00 |
+| Dealing with your lender or servicer                            | Received bad information about your loan                                              |                1 |                         0.00 |
+| Credit monitoring or identity theft protection services         | Received unwanted marketing or advertising                                            |               29 |                         0.00 |
+| Credit monitoring or identity theft protection services         | Problem with product or service terms changing                                        |              133 |                         0.00 |
+| Improper use of your report                                     | Received unsolicited financial product or insurance offers after opting out           |              210 |                         0.00 |
+| Incorrect information on your report                            | Information that should be on the report is missing                                   |               47 |                         0.00 |
+| Identity theft protection or other monitoring services          | Received unwanted marketing or advertising                                            |                4 |                         0.00 |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+37 rows in set (1 min 38.91 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and issue = 'Incorrect information on your report' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                           | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Information belongs to someone else                 |           662263 |                      12.17 |
+| Credit reporting or other personal consumer reports     | Account information incorrect                       |           158372 |                       2.91 |
+| Credit reporting or other personal consumer reports     | Account status incorrect                            |            87839 |                       1.61 |
+| Credit reporting or other personal consumer reports     | Personal information incorrect                      |            36991 |                       0.68 |
+| Credit reporting or other personal consumer reports     | Information is missing that should be on the report |             6994 |                       0.13 |
+| Credit reporting or other personal consumer reports     | Public record information inaccurate                |             5780 |                       0.11 |
+| Credit reporting or other personal consumer reports     | Old information reappears or never goes away        |             4255 |                       0.08 |
+| Credit card                                             | Account status incorrect                            |             3762 |                       0.07 |
+| Credit reporting or other personal consumer reports     | Information is incorrect                            |              393 |                       0.01 |
+| Checking or savings account                             | Account information incorrect                       |                1 |                       0.00 |
+| Checking or savings account                             | Information belongs to someone else                 |                4 |                       0.00 |
+| Credit card                                             | Account information incorrect                       |              105 |                       0.00 |
+| Credit card                                             | Information belongs to someone else                 |               45 |                       0.00 |
+| Credit card                                             | Information is missing that should be on the report |                2 |                       0.00 |
+| Credit card                                             | Old information reappears or never goes away        |                3 |                       0.00 |
+| Credit card                                             | Personal information incorrect                      |               19 |                       0.00 |
+| Credit card                                             | Public record information inaccurate                |               40 |                       0.00 |
+| Credit reporting or other personal consumer reports     | Information that should be on the report is missing |               47 |                       0.00 |
+| Mortgage                                                | Information belongs to someone else                 |                4 |                       0.00 |
+| Mortgage                                                | Public record information inaccurate                |                2 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Account information incorrect                       |                1 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Account status incorrect                            |                2 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Information belongs to someone else                 |                7 |                       0.00 |
+| Student loan                                            | Account information incorrect                       |               21 |                       0.00 |
+| Student loan                                            | Account status incorrect                            |                8 |                       0.00 |
+| Student loan                                            | Information belongs to someone else                 |                6 |                       0.00 |
+| Student loan                                            | Old information reappears or never goes away        |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Account status incorrect                            |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Information belongs to someone else                 |                3 |                       0.00 |
+| Vehicle loan or lease                                   | Old information reappears or never goes away        |                1 |                       0.00 |
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+30 rows in set (1 min 21.75 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and issue = 'Improper use of your report' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                                                   | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Reporting company used your report improperly                               |           290541 |                       5.34 |
+| Credit reporting or other personal consumer reports     | Credit inquiries on your report that you don't recognize                    |            83862 |                       1.54 |
+| Credit reporting or other personal consumer reports     | Report provided to employer without your written authorization              |             1238 |                       0.02 |
+| Credit card                                             | Credit inquiries on your report that you don't recognize                    |               12 |                       0.00 |
+| Credit card                                             | Reporting company used your report improperly                               |               18 |                       0.00 |
+| Credit reporting or other personal consumer reports     | Received unsolicited financial product or insurance offers after opting out |              210 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Credit inquiries on your report that you don't recognize                    |                1 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Reporting company used your report improperly                               |                1 |                       0.00 |
+| Student loan                                            | Credit inquiries on your report that you don't recognize                    |                1 |                       0.00 |
+| Student loan                                            | Reporting company used your report improperly                               |                9 |                       0.00 |
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+10 rows in set (1 min 11.22 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'EQUIFAX, INC.' and issue = 'Problem with a company''s investigation into an existing problem' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                                                             | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Their investigation did not fix an error on your report                               |           171529 |                       3.15 |
+| Credit reporting or other personal consumer reports     | Investigation took more than 30 days                                                  |            99828 |                       1.83 |
+| Credit reporting or other personal consumer reports     | Was not notified of investigation status or results                                   |            10987 |                       0.20 |
+| Credit reporting or other personal consumer reports     | Difficulty submitting a dispute or getting information about a dispute over the phone |             4581 |                       0.08 |
+| Credit reporting or other personal consumer reports     | Problem with personal statement of dispute                                            |             4541 |                       0.08 |
+| Credit card                                             | Was not notified of investigation status or results                                   |             3236 |                       0.06 |
+| Checking or savings account                             | Their investigation did not fix an error on your report                               |                1 |                       0.00 |
+| Credit card                                             | Difficulty submitting a dispute or getting information about a dispute over the phone |                3 |                       0.00 |
+| Credit card                                             | Investigation took more than 30 days                                                  |                3 |                       0.00 |
+| Credit card                                             | Problem with personal statement of dispute                                            |                1 |                       0.00 |
+| Credit card                                             | Their investigation did not fix an error on your report                               |              164 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Problem with personal statement of dispute                                            |                2 |                       0.00 |
+| Student loan                                            | Their investigation did not fix an error on your report                               |               13 |                       0.00 |
+| Vehicle loan or lease                                   | Investigation took more than 30 days                                                  |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Their investigation did not fix an error on your report                               |                2 |                       0.00 |
++---------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+15 rows in set (1 min 12.57 sec)
+
+mysql> select issue, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as product_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and product = 'Credit reporting or other personal consumer reports' group by issue, sub_issue order by product_complaint_percentage desc;
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+| issue                                                           | sub_issue                                                                             | total_complaints | product_complaint_percentage |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+| Incorrect information on your report                            | Information belongs to someone else                                                   |           629875 |                        11.57 |
+| Improper use of your report                                     | Reporting company used your report improperly                                         |           279497 |                         5.14 |
+| Incorrect information on your report                            | Account information incorrect                                                         |           161979 |                         2.98 |
+| Problem with a company's investigation into an existing problem | Their investigation did not fix an error on your report                               |           148697 |                         2.73 |
+| Problem with a company's investigation into an existing problem | Investigation took more than 30 days                                                  |            97502 |                         1.79 |
+| Improper use of your report                                     | Credit inquiries on your report that you don't recognize                              |            91077 |                         1.67 |
+| Incorrect information on your report                            | Account status incorrect                                                              |            79117 |                         1.45 |
+| Incorrect information on your report                            | Personal information incorrect                                                        |            35493 |                         0.65 |
+| Problem with a company's investigation into an existing problem | Was not notified of investigation status or results                                   |            10622 |                         0.20 |
+| Incorrect information on your report                            | Public record information inaccurate                                                  |             7270 |                         0.13 |
+| Incorrect information on your report                            | Information is missing that should be on the report                                   |             5844 |                         0.11 |
+| Problem with a company's investigation into an existing problem | Difficulty submitting a dispute or getting information about a dispute over the phone |             4843 |                         0.09 |
+| Problem with a company's investigation into an existing problem | Problem with personal statement of dispute                                            |             4352 |                         0.08 |
+| Incorrect information on your report                            | Old information reappears or never goes away                                          |             3958 |                         0.07 |
+| Problem with fraud alerts or security freezes                   | NULL                                                                                  |             2877 |                         0.05 |
+| Improper use of your report                                     | Report provided to employer without your written authorization                        |             1540 |                         0.03 |
+| Incorrect information on your report                            | Information is incorrect                                                              |              999 |                         0.02 |
+| Credit monitoring or identity theft protection services         | Problem canceling credit monitoring or identify theft protection service              |              882 |                         0.02 |
+| Unable to get your credit report or credit score                | Other problem getting your report or credit score                                     |             1354 |                         0.02 |
+| Credit monitoring or identity theft protection services         | Billing dispute for services                                                          |              309 |                         0.01 |
+| Credit monitoring or identity theft protection services         | Didn't receive services that were advertised                                          |              613 |                         0.01 |
+| Unable to get your credit report or credit score                | Problem getting your free annual credit report                                        |              524 |                         0.01 |
+| Identity theft protection or other monitoring services          | Received unwanted marketing or advertising                                            |                6 |                         0.00 |
+| Identity theft protection or other monitoring services          | Problem with product or service terms changing                                        |                8 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Difficulty submitting a dispute or getting information about a dispute over the phone |               26 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Investigation took more than 30 days                                                  |               24 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Problem with personal statement of dispute                                            |               46 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Their investigation did not fix an error on your report                               |              207 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Was not notified of investigation status or results                                   |               16 |                         0.00 |
+| Identity theft protection or other monitoring services          | Problem canceling credit monitoring or identify theft protection service              |               37 |                         0.00 |
+| Identity theft protection or other monitoring services          | Didn't receive services that were advertised                                          |               18 |                         0.00 |
+| Identity theft protection or other monitoring services          | Billing dispute for services                                                          |               11 |                         0.00 |
+| Dealing with your lender or servicer                            | Received bad information about your loan                                              |                1 |                         0.00 |
+| Credit monitoring or identity theft protection services         | Received unwanted marketing or advertising                                            |               39 |                         0.00 |
+| Problem with a purchase shown on your statement                 | Card was charged for something you did not purchase with the card                     |                1 |                         0.00 |
+| Credit monitoring or identity theft protection services         | Problem with product or service terms changing                                        |              151 |                         0.00 |
+| Problems at the end of the loan or lease                        | Unable to receive car title or other problem after the loan is paid off               |                1 |                         0.00 |
+| Incorrect information on your report                            | Information that should be on the report is missing                                   |               53 |                         0.00 |
+| Improper use of your report                                     | Received unsolicited financial product or insurance offers after opting out           |              204 |                         0.00 |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+39 rows in set (1 min 31.25 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and issue = 'Problem with a company''s investigation into an existing problem' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                                                             | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Their investigation did not fix an error on your report                               |           148697 |                       2.73 |
+| Credit reporting or other personal consumer reports     | Investigation took more than 30 days                                                  |            97502 |                       1.79 |
+| Credit reporting or other personal consumer reports     | Was not notified of investigation status or results                                   |            10622 |                       0.20 |
+| Credit reporting or other personal consumer reports     | Difficulty submitting a dispute or getting information about a dispute over the phone |             4843 |                       0.09 |
+| Credit reporting or other personal consumer reports     | Problem with personal statement of dispute                                            |             4352 |                       0.08 |
+| Credit card                                             | Was not notified of investigation status or results                                   |             2623 |                       0.05 |
+| Credit card                                             | Difficulty submitting a dispute or getting information about a dispute over the phone |                1 |                       0.00 |
+| Credit card                                             | Investigation took more than 30 days                                                  |                3 |                       0.00 |
+| Credit card                                             | Their investigation did not fix an error on your report                               |              191 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Investigation took more than 30 days                                                  |                1 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Their investigation did not fix an error on your report                               |                1 |                       0.00 |
+| Student loan                                            | Problem with personal statement of dispute                                            |                2 |                       0.00 |
+| Student loan                                            | Their investigation did not fix an error on your report                               |                8 |                       0.00 |
+| Vehicle loan or lease                                   | Investigation took more than 30 days                                                  |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Was not notified of investigation status or results                                   |                2 |                       0.00 |
++---------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+15 rows in set (1 min 11.95 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and issue = 'Improper use of your report' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                                                   | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Reporting company used your report improperly                               |           279497 |                       5.14 |
+| Credit reporting or other personal consumer reports     | Credit inquiries on your report that you don't recognize                    |            91077 |                       1.67 |
+| Credit reporting or other personal consumer reports     | Report provided to employer without your written authorization              |             1540 |                       0.03 |
+| Credit card                                             | Credit inquiries on your report that you don't recognize                    |               23 |                       0.00 |
+| Credit card                                             | Report provided to employer without your written authorization              |                1 |                       0.00 |
+| Credit card                                             | Reporting company used your report improperly                               |               24 |                       0.00 |
+| Credit reporting or other personal consumer reports     | Received unsolicited financial product or insurance offers after opting out |              204 |                       0.00 |
+| Mortgage                                                | Received unsolicited financial product or insurance offers after opting out |                1 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Credit inquiries on your report that you don't recognize                    |                1 |                       0.00 |
+| Student loan                                            | Credit inquiries on your report that you don't recognize                    |                1 |                       0.00 |
+| Student loan                                            | Reporting company used your report improperly                               |                8 |                       0.00 |
+| Vehicle loan or lease                                   | Reporting company used your report improperly                               |                2 |                       0.00 |
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+12 rows in set (1 min 12.48 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'TRANSUNION INTERMEDIATE HOLDINGS, INC.' and issue = 'Incorrect information on your report' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                           | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Information belongs to someone else                 |           629875 |                      11.57 |
+| Credit reporting or other personal consumer reports     | Account information incorrect                       |           161979 |                       2.98 |
+| Credit reporting or other personal consumer reports     | Account status incorrect                            |            79117 |                       1.45 |
+| Credit reporting or other personal consumer reports     | Personal information incorrect                      |            35493 |                       0.65 |
+| Credit reporting or other personal consumer reports     | Public record information inaccurate                |             7270 |                       0.13 |
+| Credit reporting or other personal consumer reports     | Information is missing that should be on the report |             5844 |                       0.11 |
+| Credit reporting or other personal consumer reports     | Old information reappears or never goes away        |             3958 |                       0.07 |
+| Credit card                                             | Account status incorrect                            |             2455 |                       0.05 |
+| Credit reporting or other personal consumer reports     | Information is incorrect                            |              999 |                       0.02 |
+| Checking or savings account                             | Information belongs to someone else                 |                2 |                       0.00 |
+| Credit card                                             | Account information incorrect                       |               96 |                       0.00 |
+| Credit card                                             | Information belongs to someone else                 |               42 |                       0.00 |
+| Credit card                                             | Information is missing that should be on the report |                1 |                       0.00 |
+| Credit card                                             | Old information reappears or never goes away        |                5 |                       0.00 |
+| Credit card                                             | Personal information incorrect                      |               17 |                       0.00 |
+| Credit card                                             | Public record information inaccurate                |               28 |                       0.00 |
+| Credit reporting or other personal consumer reports     | Information that should be on the report is missing |               53 |                       0.00 |
+| Mortgage                                                | Information belongs to someone else                 |                2 |                       0.00 |
+| Mortgage                                                | Public record information inaccurate                |                1 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Account information incorrect                       |                2 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Account status incorrect                            |                2 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Information belongs to someone else                 |                9 |                       0.00 |
+| Student loan                                            | Account information incorrect                       |               17 |                       0.00 |
+| Student loan                                            | Account status incorrect                            |               10 |                       0.00 |
+| Student loan                                            | Information belongs to someone else                 |                9 |                       0.00 |
+| Student loan                                            | Old information reappears or never goes away        |                2 |                       0.00 |
+| Student loan                                            | Personal information incorrect                      |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Account status incorrect                            |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Information belongs to someone else                 |                4 |                       0.00 |
+| Vehicle loan or lease                                   | Old information reappears or never goes away        |                1 |                       0.00 |
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+30 rows in set (1 min 19.72 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and issue = 'Incorrect information on your report' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                           | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Information belongs to someone else                 |           567602 |                      10.43 |
+| Credit reporting or other personal consumer reports     | Account information incorrect                       |           127919 |                       2.35 |
+| Credit reporting or other personal consumer reports     | Account status incorrect                            |            59373 |                       1.09 |
+| Credit reporting or other personal consumer reports     | Personal information incorrect                      |            28107 |                       0.52 |
+| Credit reporting or other personal consumer reports     | Information is missing that should be on the report |             5715 |                       0.10 |
+| Credit reporting or other personal consumer reports     | Public record information inaccurate                |             4641 |                       0.09 |
+| Credit reporting or other personal consumer reports     | Old information reappears or never goes away        |             4151 |                       0.08 |
+| Credit card                                             | Account status incorrect                            |             2826 |                       0.05 |
+| Credit reporting or other personal consumer reports     | Information is incorrect                            |              670 |                       0.01 |
+| Credit card                                             | Account information incorrect                       |               57 |                       0.00 |
+| Credit card                                             | Information belongs to someone else                 |               50 |                       0.00 |
+| Credit card                                             | Information is missing that should be on the report |                2 |                       0.00 |
+| Credit card                                             | Old information reappears or never goes away        |                2 |                       0.00 |
+| Credit card                                             | Personal information incorrect                      |                7 |                       0.00 |
+| Credit card                                             | Public record information inaccurate                |                7 |                       0.00 |
+| Credit reporting or other personal consumer reports     | Information that should be on the report is missing |               59 |                       0.00 |
+| Checking or savings account                             | Account status incorrect                            |                1 |                       0.00 |
+| Checking or savings account                             | Information belongs to someone else                 |                1 |                       0.00 |
+| Checking or savings account                             | Old information reappears or never goes away        |                1 |                       0.00 |
+| Mortgage                                                | Account information incorrect                       |                1 |                       0.00 |
+| Mortgage                                                | Account status incorrect                            |                1 |                       0.00 |
+| Mortgage                                                | Information belongs to someone else                 |                1 |                       0.00 |
+| Mortgage                                                | Public record information inaccurate                |                1 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Account information incorrect                       |                2 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Information belongs to someone else                 |                7 |                       0.00 |
+| Student loan                                            | Account information incorrect                       |               10 |                       0.00 |
+| Student loan                                            | Account status incorrect                            |                3 |                       0.00 |
+| Student loan                                            | Information belongs to someone else                 |                6 |                       0.00 |
+| Student loan                                            | Old information reappears or never goes away        |                1 |                       0.00 |
+| Student loan                                            | Public record information inaccurate                |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Account information incorrect                       |                1 |                       0.00 |
+| Vehicle loan or lease                                   | Account status incorrect                            |                2 |                       0.00 |
+| Vehicle loan or lease                                   | Information belongs to someone else                 |                3 |                       0.00 |
++---------------------------------------------------------+-----------------------------------------------------+------------------+----------------------------+
+33 rows in set (1 min 17.42 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and issue = 'Improper use of your report' group by product, sub_issue order by issue_complaint_percentage desc;
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+| product                                                 | sub_issue                                                                   | total_complaints | issue_complaint_percentage |
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports     | Reporting company used your report improperly                               |           234831 |                       4.31 |
+| Credit reporting or other personal consumer reports     | Credit inquiries on your report that you don't recognize                    |            58485 |                       1.07 |
+| Credit reporting or other personal consumer reports     | Report provided to employer without your written authorization              |             1153 |                       0.02 |
+| Checking or savings account                             | Reporting company used your report improperly                               |                1 |                       0.00 |
+| Credit card                                             | Credit inquiries on your report that you don't recognize                    |               18 |                       0.00 |
+| Credit card                                             | Received unsolicited financial product or insurance offers after opting out |                2 |                       0.00 |
+| Credit card                                             | Reporting company used your report improperly                               |               24 |                       0.00 |
+| Credit reporting or other personal consumer reports     | Received unsolicited financial product or insurance offers after opting out |              230 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Credit inquiries on your report that you don't recognize                    |                3 |                       0.00 |
+| Payday loan, title loan, personal loan, or advance loan | Reporting company used your report improperly                               |                2 |                       0.00 |
+| Student loan                                            | Reporting company used your report improperly                               |               11 |                       0.00 |
++---------------------------------------------------------+-----------------------------------------------------------------------------+------------------+----------------------------+
+11 rows in set (1 min 10.02 sec)
+
+mysql> select product, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as issue_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and issue = 'Problem with a company''s investigation into an existing problem' group by product, sub_issue order by issue_complaint_percentage desc;
++-----------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+| product                                             | sub_issue                                                                             | total_complaints | issue_complaint_percentage |
++-----------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+| Credit reporting or other personal consumer reports | Their investigation did not fix an error on your report                               |           153841 |                       2.83 |
+| Credit reporting or other personal consumer reports | Investigation took more than 30 days                                                  |            86814 |                       1.59 |
+| Credit reporting or other personal consumer reports | Was not notified of investigation status or results                                   |            10148 |                       0.19 |
+| Credit reporting or other personal consumer reports | Difficulty submitting a dispute or getting information about a dispute over the phone |             4904 |                       0.09 |
+| Credit reporting or other personal consumer reports | Problem with personal statement of dispute                                            |             4517 |                       0.08 |
+| Credit card                                         | Was not notified of investigation status or results                                   |             1983 |                       0.04 |
+| Checking or savings account                         | Difficulty submitting a dispute or getting information about a dispute over the phone |                1 |                       0.00 |
+| Checking or savings account                         | Was not notified of investigation status or results                                   |                1 |                       0.00 |
+| Credit card                                         | Difficulty submitting a dispute or getting information about a dispute over the phone |                4 |                       0.00 |
+| Credit card                                         | Investigation took more than 30 days                                                  |                1 |                       0.00 |
+| Credit card                                         | Problem with personal statement of dispute                                            |                2 |                       0.00 |
+| Credit card                                         | Their investigation did not fix an error on your report                               |              198 |                       0.00 |
+| Mortgage                                            | Their investigation did not fix an error on your report                               |                1 |                       0.00 |
+| Student loan                                        | Difficulty submitting a dispute or getting information about a dispute over the phone |                1 |                       0.00 |
+| Student loan                                        | Their investigation did not fix an error on your report                               |               10 |                       0.00 |
++-----------------------------------------------------+---------------------------------------------------------------------------------------+------------------+----------------------------+
+15 rows in set (2 min 51.36 sec)
+
+mysql> select issue, sub_issue, count(*) as total_complaints, round(count(*) * 100 / (select count(*) from consumer_complaints), 2) as product_complaint_percentage from consumer_complaints where company = 'Experian Information Solutions Inc.' and product = 'Credit reporting or other personal consumer reports' group by issue, sub_issue order by product_complaint_percentage desc;
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+| issue                                                           | sub_issue                                                                             | total_complaints | product_complaint_percentage |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+| Incorrect information on your report                            | Information belongs to someone else                                                   |           567602 |                        10.43 |
+| Improper use of your report                                     | Reporting company used your report improperly                                         |           234831 |                         4.31 |
+| Problem with a company's investigation into an existing problem | Their investigation did not fix an error on your report                               |           153841 |                         2.83 |
+| Incorrect information on your report                            | Account information incorrect                                                         |           127919 |                         2.35 |
+| Problem with a company's investigation into an existing problem | Investigation took more than 30 days                                                  |            86814 |                         1.59 |
+| Incorrect information on your report                            | Account status incorrect                                                              |            59373 |                         1.09 |
+| Improper use of your report                                     | Credit inquiries on your report that you don't recognize                              |            58485 |                         1.07 |
+| Incorrect information on your report                            | Personal information incorrect                                                        |            28107 |                         0.52 |
+| Problem with a company's investigation into an existing problem | Was not notified of investigation status or results                                   |            10148 |                         0.19 |
+| Incorrect information on your report                            | Information is missing that should be on the report                                   |             5715 |                         0.10 |
+| Problem with a company's investigation into an existing problem | Difficulty submitting a dispute or getting information about a dispute over the phone |             4904 |                         0.09 |
+| Incorrect information on your report                            | Public record information inaccurate                                                  |             4641 |                         0.09 |
+| Problem with a company's investigation into an existing problem | Problem with personal statement of dispute                                            |             4517 |                         0.08 |
+| Incorrect information on your report                            | Old information reappears or never goes away                                          |             4151 |                         0.08 |
+| Problem with fraud alerts or security freezes                   | NULL                                                                                  |             2971 |                         0.05 |
+| Unable to get your credit report or credit score                | Other problem getting your report or credit score                                     |             2451 |                         0.05 |
+| Credit monitoring or identity theft protection services         | Problem canceling credit monitoring or identify theft protection service              |              888 |                         0.02 |
+| Improper use of your report                                     | Report provided to employer without your written authorization                        |             1153 |                         0.02 |
+| Incorrect information on your report                            | Information is incorrect                                                              |              670 |                         0.01 |
+| Problem with a company's investigation into an existing issue   | Their investigation did not fix an error on your report                               |              286 |                         0.01 |
+| Credit monitoring or identity theft protection services         | Billing dispute for services                                                          |              385 |                         0.01 |
+| Credit monitoring or identity theft protection services         | Didn't receive services that were advertised                                          |              666 |                         0.01 |
+| Unable to get your credit report or credit score                | Problem getting your free annual credit report                                        |              577 |                         0.01 |
+| Identity theft protection or other monitoring services          | Problem canceling credit monitoring or identify theft protection service              |               50 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Difficulty submitting a dispute or getting information about a dispute over the phone |               49 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Investigation took more than 30 days                                                  |               36 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Problem with personal statement of dispute                                            |               43 |                         0.00 |
+| Improper use of your report                                     | Received unsolicited financial product or insurance offers after opting out           |              230 |                         0.00 |
+| Problem with a company's investigation into an existing issue   | Was not notified of investigation status or results                                   |               22 |                         0.00 |
+| Identity theft protection or other monitoring services          | Didn't receive services that were advertised                                          |               17 |                         0.00 |
+| Identity theft protection or other monitoring services          | Billing dispute for services                                                          |               10 |                         0.00 |
+| Dealing with your lender or servicer                            | Received bad information about your loan                                              |                1 |                         0.00 |
+| Credit monitoring or identity theft protection services         | Received unwanted marketing or advertising                                            |               59 |                         0.00 |
+| Credit monitoring or identity theft protection services         | Problem with product or service terms changing                                        |              188 |                         0.00 |
+| Incorrect information on your report                            | Information that should be on the report is missing                                   |               59 |                         0.00 |
+| Identity theft protection or other monitoring services          | Received unwanted marketing or advertising                                            |               11 |                         0.00 |
+| Identity theft protection or other monitoring services          | Problem with product or service terms changing                                        |               17 |                         0.00 |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------------+------------------+------------------------------+
+37 rows in set (4 min 40.01 sec)
+
+mysql>   
+ 
